@@ -77,8 +77,8 @@
                                         <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
                                             type="submit">Sign in</button>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('password.request')}}">Forgot password?</a>
-                                            <div><a class="small" href="{{ route('register')}}">Sign Up</a></div>
+                                            <a class="small" href="">Forgot password?</a>
+                                            <div><a class="small" href="">Sign Up</a></div>
 
                                         </div>
                                     </div>

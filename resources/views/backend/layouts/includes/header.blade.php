@@ -61,7 +61,7 @@
                             <div class="elementor-widget-container d-flex ml-4">
                                 <div class="elementor-button-wrapper"> <a
                                         class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                                        href="{{ route('login') }}"> <span
+                                        href=""> <span
                                             class="elementor-button-content-wrapper"> <span
                                                 class="elementor-button-text">Welcome, {{ Auth::user()->name ?? 'Login' }}</span> </span> </a> </div>
                                                 <a class="dropdown-item d-flex align-items-center " style="margin-left: 5px" href="{{ asset('ui/backend') }}/#">
@@ -77,7 +77,7 @@
                             </div>
 @else
     <div class="elementor-button-wrapper">
-        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow" href="{{ route('login') }}">
+        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow" href="">
             <span class="elementor-button-content-wrapper">
                 <span class="elementor-button-text">Login</span>
             </span>

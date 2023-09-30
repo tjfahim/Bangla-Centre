@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PdfController;
@@ -35,8 +35,17 @@ Route::post('/book', [HomeController::class, 'store'])->name('book_now');
 Route::get('/halldetails/{id}/{price}', [HomeController::class, 'halldetails'])->name('halldetails');
 Route::get('/status_update', [HomeController::class, 'status_update'])->name('status_update');
 Route::get('/status_update_pending', [HomeController::class, 'status_update_pending'])->name('status_update_pending');
-Route::get('/user-login/{hall}/{check_in}/{check_out}/{shift}/{charity}', [HomeController::class, 'userLoginget'])->name('user.login_search');
-Route::post('/user-login-submit', [HomeController::class, 'userLogin'])->name('user.login');
+Route::get('/user-login/{hall}/{check_in}/{check_out}/{shift}/{charity}', [AuthController::class, 'userLoginget'])->name('user.login_search');
+Route::post('/user-login-submit', [AuthController::class, 'userLogin'])->name('user.login');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/forgot-password', 'Auth\ForgotResetPasswordController@showForgotPasswordForm')->name('password.request');
+Route::post('/forgot-password', 'Auth\ForgotResetPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('/reset-password/{token}', 'Auth\ForgotResetPasswordController@showResetPasswordForm')->name('password.reset');
+Route::post('/reset-password', 'Auth\ForgotResetPasswordController@reset')->name('password.update');
+
+
+
 
 
 Route::get('/login/new', function(){
