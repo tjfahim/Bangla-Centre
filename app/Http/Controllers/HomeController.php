@@ -145,7 +145,7 @@ class HomeController extends Controller
 
             $hall_id = $request->input('book_now');
 
-            return redirect()->route('payment.index', ['hall_id' => $hall_id, 'booking_id' => $booking])->withMessage('Booking is Pending, Please Payment in 10 minute for confirmation');
+            return redirect()->route('payment.index', ['hall_id' => $hall_id, 'booking_id' => $booking])->withMessage('Booking is Pending, Please Payment in 1 hour for confirmation');
         } catch (Exception $e) {
             return redirect()->back();
         }
@@ -244,7 +244,6 @@ class HomeController extends Controller
             if (empty($payment_records)) {
                 $updatebooking = BookingManage::find($booking_id);
                 $updatebooking->status = 'available';
-                $updatebooking->save();
             } else {
                 $updatebooking = BookingManage::find($payment_records->booking_manage_id);
                 $check_in_date = $updatebooking->check_in_date;
@@ -290,7 +289,7 @@ class HomeController extends Controller
 
             if (Hash::check($credentials['password'], $user->password)) {
                 Auth::login($user);
-
+                
                 $charity = $charity;
                 $shift = $shift;
                 $selected_Shift = ShiftsModel::findOrFail($shift);
@@ -349,7 +348,7 @@ class HomeController extends Controller
                     $discount_prices = []; // Array to store discount prices
                     if ($allHallInfo->isEmpty()) {
                         return redirect()->back()->with('message', 'In this date and shift hall not available !!');
-                    }
+                    } 
                     else {
                         foreach ($filteredHallInfo as $hall) {
                             if ($charity == 1) {
@@ -368,14 +367,14 @@ class HomeController extends Controller
             else {
 
                 return redirect()->back()->with('message', 'In this date and shift hall not available !!');
-
+            
                     }
                 }
                 // Wrong password
                 return redirect()->back()->withInput()->withErrors(['password' => 'Wrong password']);
         }
-
-
+        
+        
         return view('backend.bookings.login');
     }
 
@@ -386,5 +385,5 @@ class HomeController extends Controller
 
     }
 
-
+    
 }

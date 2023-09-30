@@ -124,5 +124,3 @@ Route::get('/success-transaction', [PaymentController::class, 'successTransactio
 Route::get('/cancel-transaction', [PaymentController::class, 'cancelTransaction'])->name('cancelTransaction');
 
 
-
-require __DIR__ . '/auth.php';
