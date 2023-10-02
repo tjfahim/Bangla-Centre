@@ -51,6 +51,11 @@
                 <i class="bi bi-currency-dollar"></i><span>Payment</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('admin.settings') }}">
+                <i class="bi bi-wrench-adjustable-circle"></i><span>Settings</span>
+            </a>
+        </li>
 
     </ul>
 

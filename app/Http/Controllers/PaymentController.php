@@ -15,7 +15,9 @@ use App\Models\BookingManage;
 use App\Models\PaymentManage;
 use App\Models\PersonalDetails;
 use App\Jobs\UpdateBookedStatus;
+use App\Models\Settings;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
@@ -27,19 +29,26 @@ class PaymentController extends Controller
 {
     public function index($hall_id, $booking_id)
     {
+        $Settings=Settings::first();
+        $stripe_key= $Settings->stripe_key;
+    
 
 
         $hall = HallManage::find($hall_id);
 
         $booking = BookingManage::find($booking_id);
 
-        return view('backend.payment', compact('hall','booking'));
+        return view('backend.payment', compact('hall','booking','stripe_key'));
     }
 
 
     public function processPayment(Request $request)
     {
-        Stripe::setApiKey("sk_test_51NhzgxDLuce6dgBfhkXakAQE1HR076sag7ejtqiJicLeOgiCYWsaLmEkeBN4z3J5WAJ8HKxIoEJOJ1zLrRZfBh2R00ohnZX3qZ");
+        $Settings=Settings::first();
+        $stripe_secret= $Settings->stripe_secret;
+    
+
+        Stripe::setApiKey($stripe_secret);
 
         $user_id = Auth::id();
 
@@ -101,6 +110,10 @@ class PaymentController extends Controller
     {
 
         $user_id = Auth::id();
+
+        $settings = Settings::first();
+        Config::set('paypal.sandbox.client_id',$settings->paypal_client_id);
+        Config::set('paypal.sandbox.client_secret',$settings->paypal_client_secret);
 
         $bookingmanage = BookingManage::where('user_id', $user_id)
         ->latest()

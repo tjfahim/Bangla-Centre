@@ -18,6 +18,7 @@ use App\Http\Controllers\PaymentManageController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\PersonalDetailsController;
 use App\Http\Controllers\CustomForgotPasswordController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,8 +133,20 @@ Route::middleware(['auth', 'checkpermission'])->group(function () {
         Route::post('/update/{id}', [PersonalDetailsController::class, 'update'])->name('person.update');
         Route::delete('/destroy/{id}', [PersonalDetailsController::class, 'destroy'])->name('person.destroy');
     });
+
     Route::prefix('payment')->group(function () {
         Route::get('/index', [PaymentManageController::class, 'index'])->name('payment_dashboard.index');
     });
+
+    Route::prefix('settings')->group(function () {
+        Route::get('/', [SettingsController::class, 'showSettingsForm'])->name('admin.settings');
+        Route::post('/update', [SettingsController::class, 'updateSettings'])->name('admin.settings.update');
+        Route::get('/getStripeKey', [SettingsController::class, 'getStripeKey']);
+    });
+
+
+
+
+
 });
 

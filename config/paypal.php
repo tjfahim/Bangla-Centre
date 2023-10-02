@@ -7,8 +7,7 @@
 return [
     'mode'    => env('PAYPAL_MODE', 'sandbox'), // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
     'sandbox' => [
-        'client_id'         => env('PAYPAL_SANDBOX_CLIENT_ID', 'AYU0wdLSZNKDpCyLYqBuddSf2lz3jDFAHs0Xo_uAKvLqYJWi_JTdodTZcnZYRQudAYNcCuFZ083mFHTP'),
-        'client_secret'     => env('PAYPAL_SANDBOX_CLIENT_SECRET', 'EA6oIEVIpwT1vOmnI_HQpfcZdOkYFebyohQA1uoPWmb42W3CsjV42AepEz7_x-7prQWM8Wlmq1tkpY4h'),
+
         'app_id'            => 'APP-80W284485P519543T',
     ],
     'live' => [

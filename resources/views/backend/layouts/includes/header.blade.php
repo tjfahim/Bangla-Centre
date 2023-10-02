@@ -126,29 +126,7 @@
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4611">
                                             <a href="https://banglacentre.com/newsite/"
                                                 class="elementor-item">Home</a></li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4602">
-                                            <a href="https://banglacentre.com/newsite/registration/"
-                                                class="elementor-item">Registration</a>
-                                            <ul class="sub-menu elementor-nav-menu--dropdown">
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4603">
-                                                    <a href="https://banglacentre.com/newsite/membership/"
-                                                        class="elementor-sub-item">Membership</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4604">
-                                                    <a href="https://banglacentre.com/newsite/bangla-school-registration/"
-                                                        class="elementor-sub-item">Bangla School registration</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4605">
-                                                    <a href="https://banglacentre.com/newsite/other-registration/"
-                                                        class="elementor-sub-item">Other Registration</a></li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4617">
-                                            <a href="https://banglacentre.com/newsite/blog/"
-                                                class="elementor-item">Blog</a></li>
+                                        
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4610">
                                             <a href="https://banglacentre.com/newsite/contact/"
