@@ -11,6 +11,7 @@ use App\Models\PaymentManage;
 use Illuminate\Http\Request;
 use App\Models\PersonalDetails;
 use App\Models\ShiftsModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 session_start();
@@ -25,7 +26,16 @@ class DashboardController extends Controller
         $totalHalls = HallManage::count();
         $totalBookings = BookingManage::count();
         $totalPayments = PaymentManage::count();
-        return view('backend.dashboard2', compact('dashboards', 'totalShifts', 'totalUsers', 'totalHalls', 'totalBookings', 'totalPayments'));
+
+
+        $userId = Auth::id(); // Get the authenticated user's ID
+
+        $booking_pending = BookingManage::where('user_id', $userId)
+        ->where('status', 'pending')
+        ->count();
+        $totalPaymentuser = PaymentManage::where('user_id', $userId)->count();
+
+        return view('backend.dashboard2', compact('dashboards', 'totalShifts', 'totalUsers', 'totalHalls', 'totalBookings', 'totalPayments','booking_pending','totalPaymentuser'));
     }
 
     public function edit($id)

@@ -1,29 +1,140 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('backend.layouts2.master')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+
+@section('main_content')
+    @include('backend.layouts2.includes.message')
+    <section style="background-color: ;">
+        <div class="container  ">
+      
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        
+                        <div class="card-body p-5">
+                            <div style="font-size: 20px; margin-bottom:10px">Profile Information</div>
+                            @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                            @endif
+                        
+
+                            <form method="POST" action="{{ route('profile.update') }}">
+                                @csrf
+                                @method('PUT')
+            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Name:</label>
+                                        <input class="form-control mb-3 " type="text" name="name" value="{{ auth()->user()->name }}" required>
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Email:</label>
+                                        <input class="form-control mb-3 " type="email" name="email" value="{{ auth()->user()->email }}" readonly>
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Phone:</label>
+                                        <input class="form-control mb-3 " type="number" name="phone" value="{{ auth()->user()->phone }}" required>
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Address:</label>
+                                        <input class="form-control mb-3 " type="text" name="address" value="{{ auth()->user()->address }}" required>
+                                    </div>
+                                </div>
+            
+                                <div class="text-left">
+                                    <button type="submit" class="btn btn-success btn-sm">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        
+                        <div class="card-body p-5">
+                            <div style="font-size: 20px; margin-bottom:10px">Change Password</div>
+                            
+                                @if (session('password_success'))
+                                <div class="alert alert-success">
+                                    {{ session('password_success') }}
+                                </div>
+                                @endif
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+                                @error('old_password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+
+
+                                <form method="POST" action="{{ route('profile.password') }}">
+                                    @csrf
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Old Password:</label>
+                                        <input class="form-control mb-3 " type="password" name="old_password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="new_password">New Password:</label>
+                                        <input class="form-control mb-3" type="password" name="new_password" id="new_password" required>
+                                        @error('new_password')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">     
+                                        <label for="confirm_password">Confirm Password:</label>
+                                        <input class="form-control mb-3" type="password" name="confirm_password" id="confirm_password" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-sm">Change</button>
+            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        
+                        <div class="card-body p-5">
+                            <div style="font-size: 20px; margin-bottom:10px">Forgot Password</div>
+
+                            <form method="POST" action="{{ route('profile.password') }}">
+                                @csrf            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Email:</label>
+                                        <input class="form-control mb-3 " type="email" name="email" value="{{ auth()->user()->email }}" required>
+                                    </div>
+                                </div>
+                                <div class="text-left">
+                                    <button type="submit" class="btn btn-success btn-sm">Sent</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
             </div>
+          </div>
         </div>
-    </div>
-</x-app-layout>
+      </section>
+   
+  
+    
+    
+@endsection

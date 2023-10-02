@@ -7,7 +7,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header d-flex">
-                Personal Details Lists
+                Customer Details Lists
             </div>
             <div class="card-body">
                 <table class="table table-bordered datatable">

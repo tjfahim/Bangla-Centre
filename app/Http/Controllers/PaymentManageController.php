@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\HallManage;
 use Illuminate\Http\Request;
 use App\Models\PaymentManage;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentManageController extends Controller
 {
@@ -15,4 +16,5 @@ class PaymentManageController extends Controller
         $users = User::latest()->get();
         return view('backend.payments.index', compact('paymentmanages', 'hallManages', 'users'));
     }
+ 
 }

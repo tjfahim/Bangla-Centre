@@ -19,6 +19,11 @@ class AuthController extends Controller
         return view('backend.bookings.login', compact('hall', 'checkin', 'checkout', 'shift', 'charity'));
 
     }
+    public function login_new(){
+
+        return view('backend.bookings.login');
+
+    }
 
     public function userLogin(Request $request){
 
@@ -76,7 +81,6 @@ class AuthController extends Controller
 
 
                 if ($request->hall != 0 && $bookingCount==0) {
-
                     if ($charity == 1) {
                         $hallInfo = HallManage::find($hall);
                         $discount_price = ($hallInfo->price - ($hallInfo->price * $hallInfo->charity_discount) / 100);
@@ -85,9 +89,7 @@ class AuthController extends Controller
                         $discount_price = $hallInfo->price;
                     }
 
-
                     return view('backend.halllist', compact('hallInfo', 'discount_price', 'numberOfDays', 'charity', 'check_in_date_view', 'check_out_date_view', 'shift_view'));
-
 
                     } else if ($hall == 0 ) {
 
@@ -110,10 +112,8 @@ class AuthController extends Controller
 
                             $discount_prices[$hall->id] = $discount_price; // Store discount price for each hall
                         }
-
                                  return view('backend.halllist', compact('allHallInfo', 'discount_prices', 'charity', 'numberOfDays', 'check_in_date_view','check_out_date_view', 'shift_view'));
                             }
-
             }
             else {
 
@@ -135,49 +135,107 @@ class AuthController extends Controller
         return view('login');
 
     }
-
-    public function showForgotPasswordForm()
-    {
-        return view('auth.passwords.email');
-    }
-
-    // Send reset password link
-    public function sendResetLinkEmail(Request $request)
-    {
-        $request->validate(['email' => 'required|email']);
-
-        $status = Password::sendResetLink($request->only('email'));
-
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
-    }
-
-    // Show the reset password form
-    public function showResetPasswordForm(Request $request, $token)
-    {
-        return view('auth.passwords.reset', ['token' => $token, 'email' => $request->email]);
-    }
-
-    // Reset the user's password
-    public function reset(Request $request)
+    public function login_submit(Request $request)
     {
         $request->validate([
-            'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required',
         ]);
+        $credentials = $request->only('email', 'password');
 
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user, $password) {
-                $user->forceFill(['password' => bcrypt($password)])->save();
+        if (auth()->attempt($credentials)) {
+            return redirect()->route('admin.index');
+        } else {
+            // Check if the email is correct but the password is wrong
+            $user = User::where('email', $request->email)->first();
+            if ($user && !Hash::check($request->password, $user->password)) {
+                return back()->withInput()->withErrors(['password' => 'Invalid password']);
             }
-        );
-
-        return $status == Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($status))
-            : back()->withErrors(['email' => __($status)]);
+            
+            return back()->withInput()->withErrors(['email' => 'Invalid Email']);
+        }
     }
+    
+
+
+    public function register(){
+        return view('registration');
+    }
+
+
+    public function register_submit(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'password' => 'required|min:6',
+        ]);
+        $user = new User();
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+        $user->phone = $validatedData['phone']; 
+        $user->address = $validatedData['address']; 
+        $user->password = bcrypt($validatedData['password']);
+        $user->role = 'user';
+        $user->save();
+
+        return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
+        }
+
+        public function logout(Request $request)
+        {
+            Auth::logout();
+        
+            $request->session()->invalidate();
+        
+            return redirect('/');
+        }
+
+
+
+        public function updateProfile(Request $request)
+            {
+                $user = auth()->user();
+
+                $validatedData = $request->validate([
+                    'name' => 'required|string|max:255',
+                    'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+                    'phone' => 'required|string|max:255',
+                    'address' => 'required|string|max:255',
+                ]);
+
+                $user->name = $validatedData['name'];
+                $user->email = $validatedData['email'];
+                $user->phone = $validatedData['phone'];
+                $user->address = $validatedData['address'];
+                $user->save();
+
+                return redirect()->back()->with('success', 'Profile updated successfully');
+        }
+
+        public function updatePassword(Request $request)
+        {
+            // Validate the user input
+            $request->validate([
+                'old_password' => 'required',
+                'new_password' => 'required|min:6|confirmed',
+            ]);
+
+            // Get the authenticated user
+            $user = auth()->user();
+
+           
+            if (!Hash::check($request->old_password, $user->password)) {
+                return redirect()->back()->withErrors(['old_password' => 'The old password is incorrect']);
+            }
+
+            // Update the user's password
+            $user->password = bcrypt($request->new_password);
+            $user->save();
+            return redirect()->back()->with('password_success', 'Password changed successfully');
+
+        }
+
 
 }

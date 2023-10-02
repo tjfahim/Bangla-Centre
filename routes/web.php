@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ use App\Http\Controllers\BookingManageController;
 use App\Http\Controllers\PaymentManageController;
 use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\PersonalDetailsController;
+use App\Http\Controllers\CustomForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,39 +39,51 @@ Route::get('/status_update', [HomeController::class, 'status_update'])->name('st
 Route::get('/status_update_pending', [HomeController::class, 'status_update_pending'])->name('status_update_pending');
 Route::get('/user-login/{hall}/{check_in}/{check_out}/{shift}/{charity}', [AuthController::class, 'userLoginget'])->name('user.login_search');
 Route::post('/user-login-submit', [AuthController::class, 'userLogin'])->name('user.login');
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-
-Route::get('/forgot-password', 'Auth\ForgotResetPasswordController@showForgotPasswordForm')->name('password.request');
-Route::post('/forgot-password', 'Auth\ForgotResetPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('/reset-password/{token}', 'Auth\ForgotResetPasswordController@showResetPasswordForm')->name('password.reset');
-Route::post('/reset-password', 'Auth\ForgotResetPasswordController@reset')->name('password.update');
-
+Route::post('/login', [AuthController::class, 'login_submit'])->name('login.submit');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'register_submit'])->name('register.submit');
 
 
 
-
-Route::get('/login/new', function(){
-    return view('backend.bookings.login');
-});
-
-
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
-Route::get('/dashboard', [UserDashboardController::class, 'user_dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard/details/{id}', [UserDashboardController::class, 'user_details'])->middleware(['auth', 'verified'])->name('dashboard.details');
-Route::get('/booking_list', [UserDashboardController::class, 'booking_list'])->middleware(['auth', 'verified'])->name('booking_list');
+Route::get('/login/new', [AuthController::class, 'login_new']);
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
+
+Route::get('/payment-info', [UserDashboardController::class, 'user_dashboard'])->middleware(['auth', 'verified'])->name('payment_dashboard.index.user');
+Route::get('/payment-info/details/{id}', [UserDashboardController::class, 'payment_details'])->middleware(['auth', 'verified'])->name('dashboard.details');
+Route::get('/booking-list', [UserDashboardController::class, 'booking_list'])->middleware(['auth', 'verified'])->name('booking.index.user');
 Route::get('/booking_details/{id}', [UserDashboardController::class, 'booking_details'])->middleware(['auth', 'verified'])->name('booking_details');
 
+Route::get('/searchresult', [HomeController::class, 'searchresult'])->name('searchresult.index');
+Route::get('/payment/{hall_id}/{booking_id}', [PaymentController::class, 'index'])->name('payment.index');
+Route::post('/stripe', [PaymentController::class, 'processPayment'])->name('payment.stripe');
+Route::get('/process-transaction', [PaymentController::class, 'processTransaction'])->name('processTransaction');
+Route::get('/success-transaction', [PaymentController::class, 'successTransaction'])->name('successTransaction');
+Route::get('/cancel-transaction', [PaymentController::class, 'cancelTransaction'])->name('cancelTransaction');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/profile-user', [ProfileController::class, 'edit'])->name('profile.user');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/password-change', [AuthController::class, 'updatePassword'])->name('profile.password');
+
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
 Route::middleware(['auth', 'checkpermission'])->group(function () {
-    Route::prefix('admin')->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
+    Route::prefix('dashboard')->group(function () {
         Route::get('/edit/{id}', [DashboardController::class, 'edit'])->name('dashboard.edit');
         Route::post('/update/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
         Route::delete('/destroy/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
@@ -122,14 +136,4 @@ Route::middleware(['auth', 'checkpermission'])->group(function () {
         Route::get('/index', [PaymentManageController::class, 'index'])->name('payment_dashboard.index');
     });
 });
-
-Route::get('/searchresult', [HomeController::class, 'searchresult'])->name('searchresult.index');
-Route::get('/payment/{hall_id}/{booking_id}', [PaymentController::class, 'index'])->name('payment.index');
-Route::post('/stripe', [PaymentController::class, 'processPayment'])->name('payment.stripe');
-
-
-Route::get('/process-transaction', [PaymentController::class, 'processTransaction'])->name('processTransaction');
-Route::get('/success-transaction', [PaymentController::class, 'successTransaction'])->name('successTransaction');
-Route::get('/cancel-transaction', [PaymentController::class, 'cancelTransaction'])->name('cancelTransaction');
-
 

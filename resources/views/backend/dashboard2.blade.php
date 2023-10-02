@@ -21,6 +21,7 @@
             <!-- Left side columns -->
             <div class="col-lg-8">
                 <div class="row">
+                    @if(auth()->user()->role === 'admin')
 
                     <!-- Customer Card -->
                     <div class="col-xxl-4 col-md-6">
@@ -94,14 +95,10 @@
 
                     </div><!-- End Hall Card -->
 
-                    <!-- Booking Card -->
                     <div class="col-xxl-4 col-xl-12">
 
                         <div class="card info-card customers-card">
-
-
-
-                            <a href="{{ route('booking.index') }}">
+                            <a href="{{ route('booking.index') }}">                    
                             <div class="card-body">
                                 <h5 class="card-title">Bookings</h5>
                                 <div class="d-flex align-items-center">
@@ -117,6 +114,33 @@
                         </div>
 
                     </div><!-- End Hall Card -->
+
+                    @endif
+                    <!-- Booking Card -->
+                    @if(auth()->user()->role === 'user')
+                    <div class="col-xxl-4 col-xl-12">
+
+                        <div class="card info-card customers-card">
+                      
+                                <a href="{{ route('booking.index.user') }}">
+                    
+                            <div class="card-body">
+                                <h5 class="card-title">Booking Pending</h5>
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-calendar"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>{{ $booking_pending }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    @endif
+
                     <!-- Booking Card -->
                     <div class="col-xxl-4 col-xl-12">
 
@@ -124,7 +148,12 @@
 
 
 
-                            <a href="{{ route('payment_dashboard.index') }}">
+                            @if(auth()->user()->role === 'admin')
+                                <a href="{{ route('payment_dashboard.index') }}">
+                            @else
+                                <a href="{{ route('payment_dashboard.index.user') }}">
+                            @endif
+                    
                             <div class="card-body">
                                 <h5 class="card-title">Payments</h5>
                                 <div class="d-flex align-items-center">
@@ -132,7 +161,12 @@
                                         <i class="bi bi-currency-dollar"></i>
                                     </div>
                                     <div class="ps-3">
+                                        @if(auth()->user()->role === 'admin')
                                         <h6>{{ $totalPayments }}</h6>
+                                    @else
+                                    <h6>{{ $totalPaymentuser }}</h6>
+                                    @endif
+                                      
                                     </div>
                                 </div>
                             </div>

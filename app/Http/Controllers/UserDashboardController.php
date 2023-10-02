@@ -20,19 +20,19 @@ class UserDashboardController extends Controller
             $userId = Auth::user()->id;
             $paymentmanages = PaymentManage::where('user_id', $userId)->paginate(10);
 
-            return view('dashboard', compact('paymentmanages'));
+            return view('backend.payments.indexUser', compact('paymentmanages'));
         }
     }
 
-    public function user_details($id)
+    public function payment_details($id)
     {
         if (Auth::check()) {
+
             $paymentmanage = PaymentManage::findorfail($id);
-            $bookingmanage = BookingManage::findorfail($paymentmanage->hall_manage_id);
+            $bookingmanage = BookingManage::findorfail($paymentmanage->booking_manage_id);
             $ShiftsModel = ShiftsModel::findorfail($bookingmanage->shifts_model_id);
             $HallManage = HallManage::findorfail($bookingmanage->hall_manage_id);
-
-            return view('details', compact('paymentmanage', 'ShiftsModel', 'bookingmanage', 'HallManage'));
+            return view('backend.payments.detailsUser', compact('paymentmanage', 'ShiftsModel', 'bookingmanage', 'HallManage'));
         }
     }
     public function booking_list()
@@ -43,16 +43,14 @@ class UserDashboardController extends Controller
             $bookingmanages = BookingManage::where('user_id', $userId)->where('status', 'pending')->paginate(10);
 
 
-            return view('booking_pending', compact('bookingmanages'));
+            return view('backend.bookings.indexUser', compact('bookingmanages'));
         }
     }
      public function booking_details($id)
     {
         if (Auth::check()) {
             $bookingmanage = BookingManage::findorfail($id);
-
             $hall_id = $bookingmanage->hall_manage_id;
-
             return redirect()->route('payment.index', ['hall_id' => $hall_id, 'booking_id' => $bookingmanage->id]);
 
 

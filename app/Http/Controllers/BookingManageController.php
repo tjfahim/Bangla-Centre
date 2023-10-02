@@ -23,6 +23,7 @@ class BookingManageController extends Controller
         return view('backend.bookings.index', compact('bookings','shifts','hallManages','users'));
     }
 
+
     public function create()
     {
         $bookings = BookingManage::latest()->get();
