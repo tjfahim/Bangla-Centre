@@ -25,7 +25,6 @@ class SearchPageRequest extends FormRequest
             'check_in_date' => 'required',
             'check_out_date' => 'required',
             'hall' => 'required',
-            'shift' => 'required|not_in:Half Day',
         ];
     }
 }

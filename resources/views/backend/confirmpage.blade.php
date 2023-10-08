@@ -49,10 +49,6 @@
                                 </div>
 
                                 <div class="d-flex justify-content-between pt-2">
-                                    <p class="fw-bold mb-0">Shift</p>
-                                    <p class="text-muted mb-0"><span class="fw-bold me-4">{{ $shift->name }}</span></p>
-                                </div>
-                                <div class="d-flex justify-content-between pt-2">
                                     <p class="fw-bold mb-0">Payment Type</p>
                                     <p class="text-muted mb-0"><span
                                             class="fw-bold me-4">{{ $payment->payment_type }}</span></p>

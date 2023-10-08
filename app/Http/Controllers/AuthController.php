@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\HallManage;
-use App\Models\ShiftsModel;
 use App\Models\BookingManage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use App\Models\User;
 
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function userLoginget(Request $request,$hall, $checkin, $checkout, $shift, $charity){
+    public function userLoginget(Request $request,$hall, $checkin, $checkout, $start_time, $end_time, $charity){
 
-        return view('backend.bookings.login', compact('hall', 'checkin', 'checkout', 'shift', 'charity'));
+        return view('backend.bookings.login', compact('hall', 'checkin', 'checkout', 'start_time', 'end_time', 'charity'));
 
     }
     public function login_new(){
@@ -30,7 +28,8 @@ class AuthController extends Controller
         $hall= $request->hall;
         $checkin= $request->checkin;
         $checkout= $request->checkout;
-        $shift= $request->shift;
+        $start_time= $request->start_time;
+        $end_time= $request->end_time;
         $charity= $request->charity;
 
         if($request->isMethod('post')){
@@ -42,25 +41,22 @@ class AuthController extends Controller
             if (!$user) {
                 return redirect()->back()->withInput()->withErrors(['email' => 'Email not found']);
             }
-
+            if ($user->role === 'admin') {
+                return redirect()->back()->withInput()->withErrors(['email' => 'This account cannot have access to book']);
+            }
             if (Hash::check($credentials['password'], $user->password)) {
                 Auth::login($user);
                 
                 $charity = $charity;
-                $shift = $shift;
-                $selected_Shift = ShiftsModel::findOrFail($shift);
-                // Calculate the duration in hours
-                $in_Time = new \DateTime($selected_Shift->in_time);
-                $out_Time = new \DateTime($selected_Shift->out_time);
-
+                $start_time = $start_time;
+                $end_time = $end_time;
                 if (strtotime($checkin) > strtotime($checkout)) {
                     return redirect()->back()->with('message', 'Invalid date selection. Check-in date cannot be greater than check-out date.');
 
                 }
 
                 $query = BookingManage::where('booking_manages.check_in_date', '<=', $checkout)
-                ->where('booking_manages.check_out_date', '>=', $checkin)
-                ->where(['shifts_model_id' => $shift]);
+                ->where('booking_manages.check_out_date', '>=', $checkin);
 
                 if ($hall != 0) {
                     $query->where('booking_manages.hall_manage_id', $hall);
@@ -72,7 +68,8 @@ class AuthController extends Controller
 
                 $check_in_date_view = $checkin;
                 $check_out_date_view = $checkout;
-                $shift_view = $shift;
+                $start_time = $start_time;
+                $end_time = $end_time;
 
                 $checkInDate = new \DateTime($checkin);
                 $checkOutDate = new \DateTime($checkout);
@@ -89,7 +86,7 @@ class AuthController extends Controller
                         $discount_price = $hallInfo->price;
                     }
 
-                    return view('backend.halllist', compact('hallInfo', 'discount_price', 'numberOfDays', 'charity', 'check_in_date_view', 'check_out_date_view', 'shift_view'));
+                    return view('backend.halllist', compact('hallInfo', 'discount_price', 'numberOfDays', 'charity', 'check_in_date_view', 'check_out_date_view', 'start_time', 'end_time'));
 
                     } else if ($hall == 0 ) {
 
@@ -100,7 +97,7 @@ class AuthController extends Controller
                     });
                     $discount_prices = []; // Array to store discount prices
                     if ($allHallInfo->isEmpty()) {
-                        return redirect()->back()->with('message', 'In this date and shift hall not available !!');
+                        return redirect()->back()->with('message', 'In this date, hall not available !!');
                     } 
                     else {
                         foreach ($filteredHallInfo as $hall) {
@@ -112,12 +109,12 @@ class AuthController extends Controller
 
                             $discount_prices[$hall->id] = $discount_price; // Store discount price for each hall
                         }
-                                 return view('backend.halllist', compact('allHallInfo', 'discount_prices', 'charity', 'numberOfDays', 'check_in_date_view','check_out_date_view', 'shift_view'));
+                                 return view('backend.halllist', compact('allHallInfo', 'discount_prices', 'charity', 'numberOfDays', 'check_in_date_view','check_out_date_view', 'start_time', 'end_time'));
                             }
             }
             else {
 
-                return redirect()->back()->with('message', 'In this date and shift hall not available !!');
+                return redirect()->back()->with('message', 'In this date, hall not available !!');
             
                     }
                 }

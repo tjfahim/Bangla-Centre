@@ -33,13 +33,16 @@
                             <td>{{ $paymentmanages->booking_manage_id ?? '' }}</td>
                             <td>{{ $paymentmanages->payment_type ?? '' }}</td>
                             <td>{{ $paymentmanages->status ?? '' }}</td>
-                            <td>
+                            {{-- <td>
                                 <a class="btn btn-sm btn-warning" href="">Edit</a>
                                 <form action="" method="post" onsubmit="return confirmDelete()">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
+                            </td> --}}
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="{{ route('dashboard.details', $paymentmanages->id) }}">Details</a>
                             </td>
                         </tr>
                         @endforeach

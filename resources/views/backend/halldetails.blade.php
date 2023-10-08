@@ -66,7 +66,7 @@
                                 <div class="rd-title">
                                     <h3>{{ $hallmanage->hall_name }}</h3>
                                 </div>
-                                <h2>${{ $price }}<span>/Pershift</span></h2>
+                                <h2>${{ $price }}<span></span></h2>
                                 <table>
                                     <tbody>
                                         <tr>

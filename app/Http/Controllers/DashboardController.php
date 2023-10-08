@@ -10,7 +10,6 @@ use App\Models\HallManage;
 use App\Models\PaymentManage;
 use Illuminate\Http\Request;
 use App\Models\PersonalDetails;
-use App\Models\ShiftsModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -21,7 +20,6 @@ class DashboardController extends Controller
     public function index()
     {
         $dashboards = Session::get('dashboards');
-        $totalShifts = ShiftsModel::count();
         $totalUsers = User::count();
         $totalHalls = HallManage::count();
         $totalBookings = BookingManage::count();
@@ -35,7 +33,7 @@ class DashboardController extends Controller
         ->count();
         $totalPaymentuser = PaymentManage::where('user_id', $userId)->count();
 
-        return view('backend.dashboard2', compact('dashboards', 'totalShifts', 'totalUsers', 'totalHalls', 'totalBookings', 'totalPayments','booking_pending','totalPaymentuser'));
+        return view('backend.dashboard2', compact('dashboards', 'totalUsers', 'totalHalls', 'totalBookings', 'totalPayments','booking_pending','totalPaymentuser'));
     }
 
     public function edit($id)

@@ -39,7 +39,7 @@
                     </div>
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
-                            <label for="charity_discount" class="form-label">Charity Discount</label>
+                            <label for="charity_discount" class="form-label">Charity Discount in percentage</label>
                             <input type="number" name="charity_discount" class="form-control">
                             @error('charity_discount')
                                 <div class="text-danger mt-3">{{ $message }}</div>

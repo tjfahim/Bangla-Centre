@@ -30,13 +30,14 @@
                                     @php
                                         $sl = 1;
                                     @endphp
+                                    
                                     @foreach ($bookingmanages as $bookingmanage)
                                         <tr>
                                             <th scope="row">{{ $sl++ }}</th>
-                                            <td>{{ $bookingmanage->hall_manage_id ?? '' }}</td>
+                                            <td>{{ $bookingmanage->hallmanages->hall_name ?? '' }}</td>
                                             <td>{{ $bookingmanage->check_in_date ?? '' }}</td>
                                             <td>{{ $bookingmanage->check_out_date ?? '' }}</td>
-                                            <td>{{ $bookingmanage->amount ?? '' }}</td>
+                                            <td>$ {{ $bookingmanage->amount ?? '' }}</td>
                                             <td>{{ $bookingmanage->status ?? '' }}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="{{ route('booking_details' , $bookingmanage->id) }}">Pay Now</a>

@@ -12,7 +12,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HallManageController;
 use App\Http\Controllers\SearchPageController;
-use App\Http\Controllers\SearchResultController;
 use App\Http\Controllers\BookingManageController;
 use App\Http\Controllers\PaymentManageController;
 use App\Http\Controllers\UserDashboardController;
@@ -33,12 +32,12 @@ use App\Http\Controllers\SettingsController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
-Route::post('/search', [HomeController::class, 'hallSearch'])->name('hallSearch');
+Route::match(['get', 'post'], '/hall-search', [HomeController::class, 'hallSearch'])->name('hallSearch');
 Route::post('/book', [HomeController::class, 'store'])->name('book_now');
 Route::get('/halldetails/{id}/{price}', [HomeController::class, 'halldetails'])->name('halldetails');
 Route::get('/status_update', [HomeController::class, 'status_update'])->name('status_update');
 Route::get('/status_update_pending', [HomeController::class, 'status_update_pending'])->name('status_update_pending');
-Route::get('/user-login/{hall}/{check_in}/{check_out}/{shift}/{charity}', [AuthController::class, 'userLoginget'])->name('user.login_search');
+Route::get('/user-login/{hall}/{check_in}/{check_out}/{start_time}/{end_time}/{charity}', [AuthController::class, 'userLoginget'])->name('user.login_search');
 Route::post('/user-login-submit', [AuthController::class, 'userLogin'])->name('user.login');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -109,14 +108,7 @@ Route::middleware(['auth', 'checkpermission'])->group(function () {
         Route::delete('/destroy/{id}', [HallManageController::class, 'destroy'])->name('hallmanage.destroy');
     });
 
-    Route::prefix('shift')->group(function () {
-        Route::get('/index', [ShiftController::class, 'index'])->name('shift.index');
-        Route::get('/create', [ShiftController::class, 'create'])->name('shift.create');
-        Route::post('/store', [ShiftController::class, 'store'])->name('shift.store');
-        Route::get('/edit/{id}', [ShiftController::class, 'edit'])->name('shift.edit');
-        Route::post('/update/{id}', [ShiftController::class, 'update'])->name('shift.update');
-        Route::delete('/destroy/{id}', [ShiftController::class, 'destroy'])->name('shift.destroy');
-    });
+
 
     Route::prefix('booking')->group(function () {
         Route::get('/index', [BookingManageController::class, 'index'])->name('booking.index');

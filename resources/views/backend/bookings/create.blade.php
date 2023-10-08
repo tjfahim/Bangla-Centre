@@ -42,6 +42,24 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
+                        <div class="col-md mt-3">
+                            <label for="start_time" class="form-label">Start Time</label>
+                            <input type="time" name="start_time" class="form-control">
+                            @error('start_time')
+                                <div class="text-danger mt-3">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
+                        <div class="col-md mt-3">
+                            <label for="end_time" class="form-label">End Time</label>
+                            <input type="time" name="end_time" class="form-control">
+                            @error('end_time')
+                                <div class="text-danger mt-3">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
                             <label class="form-label">Organization Type:</label>
@@ -63,20 +81,7 @@
                         </div>
                     </div>
                     
-                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
-                        <div class="col-md mt-3">
-                            <label for="shifts_model_id" class="form-label">Shifts</label>
-                            <select name="shifts_model_id" class="form-control">
-                                <option value="">Select Shift</option>
-                                @foreach($shifts as $shift)
-                                    <option value="{{ $shift->id }}">{{ $shift->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('shifts_model_id')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                  
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
                             <button type="submit" class="btn btn-sm btn-primary mt-3"><i class="bi bi-check"></i>

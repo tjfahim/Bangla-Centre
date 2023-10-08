@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Models\Dashboard;
 use App\Models\HallManage;
 use App\Models\SearchPage;
-use App\Models\ShiftsModel;
 use Illuminate\Http\Request;
 use App\Models\BookingManage;
 use App\Models\PaymentManage;
@@ -95,10 +94,9 @@ class PaymentController extends Controller
         ->first();
 
         $hall=HallManage::findorfail($bookingmanage->hall_manage_id);
-        $shift=ShiftsModel::findorfail($bookingmanage->shifts_model_id);
 
         session()->flash('message', 'Payment Successful');
-        return view('backend.confirmpage', compact('payment', 'user','bookingmanage', 'hall', 'shift'));
+        return view('backend.confirmpage', compact('payment', 'user','bookingmanage', 'hall'));
     }
 
 
@@ -196,11 +194,10 @@ class PaymentController extends Controller
             ->latest()
             ->first();
             $hall=HallManage::findorfail($bookingmanage->hall_manage_id);
-            $shift=ShiftsModel::findorfail($bookingmanage->shifts_model_id);
 
 
             session()->flash('message', 'Payment Successful');
-            return view('backend.confirmpage', compact('payment', 'user', 'hall', 'bookingmanage', 'shift'));
+            return view('backend.confirmpage', compact('payment', 'user', 'hall', 'bookingmanage'));
         } else {
             return redirect()
                 ->route('payment.index')

@@ -48,28 +48,13 @@
                         </div>
                     </div>
                     
-                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
-                        <div class="col-md mt-3">
-                            <label for="shifts_model_id" class="form-label">Shifts</label>
-                            <select name="shifts_model_id" class="form-control">
-                                <option value="">Select Shift</option>
-                                @foreach($shifts as $shift)
-                                    <option value="{{ $shift->id }}" {{ $booking->shifts_model_id == $shift->id ? 'selected' : '' }}>
-                                        {{ $shift->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('shifts_model_id')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                 
                     
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
                             <button type="submit" class="btn btn-sm btn-primary mt-3"><i class="bi bi-check"></i>
                                 Save</button>
-                            <a href="{{ route('shift.index') }}" class="btn btn-sm btn-danger mt-3"><i
+                            <a href="" class="btn btn-sm btn-danger mt-3"><i
                                     class="bi bi-x"></i>
                                 Cancel</a>
                         </div>

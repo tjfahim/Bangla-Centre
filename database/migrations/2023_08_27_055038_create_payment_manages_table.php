@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('hall_manage_id')->references('id')->on('hall_manages');
             
             $table->unsignedBigInteger('booking_manage_id');
-            $table->foreign('booking_manage_id')->references('id')->on('booking_manages');
+            $table->foreign('booking_manage_id')->references('id')->on('booking_manages')->onDelete('cascade');
         
             $table->string('payment_type');
             $table->string('status');

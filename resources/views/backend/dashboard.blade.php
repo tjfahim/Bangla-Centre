@@ -29,7 +29,16 @@
                         @endif
 
                             <form action="{{ route('hallSearch') }}" method="post">
-                                @csrf
+                                @csrf       
+                                @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -53,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
 
                                             <span class="form-label">Hall</span>
@@ -71,25 +80,26 @@
                                             <span class="select-arrow"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <span class="form-label">Shift</span>
-
-                                            <select class="form-control" name="shift">
-
-                                                <option value="Half Day">Select Shift</option>
-                                                @foreach ($shifts as $shift)
-                                                    <option value="{{ $shift->id }}">
-                                                        {{ date('h:i A', strtotime($shift->in_time)) }} -
-                                                        {{ date('h:i A', strtotime($shift->out_time)) }}
-                                                    </option>
-                                                @endforeach
-
-                                            </select>
-                                            @error('shift')
-                                                <div class="text-danger mt-3">Please Select Shift</div>
-                                            @enderror
-                                            <span class="select-arrow"></span>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input name="start_time" id="start-time" type="time" class="form-control" required>
+                                                    @error('start_time')
+                                                        <div class="text-danger mt-3">{{ $message }}</div>
+                                                    @enderror
+                                                    <span class="form-label">Start Time</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input name="end_time" id="end-time" type="time" class="form-control" required>
+                                                    @error('end_time')
+                                                        <div class="text-danger mt-3">{{ $message }}</div>
+                                                    @enderror
+                                                    <span class="form-label">End Time</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +118,7 @@
                                     </div>
                                 </div>
                                 <div class="form-btn">
-                                    <button class="submit-btn">Find</button>
+                                    <button class="submit-btn" type="submit">Find</button>
                                 </div>
                             </form>
                         </div>

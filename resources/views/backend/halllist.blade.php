@@ -26,7 +26,8 @@
                         @method('POST')
                         <input type="hidden" name="check_out_date" value="{{ $check_out_date_view }}">
                         <input type="hidden" name="check_in_date" value="{{ $check_in_date_view }}">
-                        <input type="hidden" name="shifts_model_id" value="{{ $shift_view }}">
+                        <input type="hidden" name="start_time" value="{{ $start_time }}">
+                        <input type="hidden" name="end_time" value="{{ $end_time }}">
                         <div class="row justify-content-center mb-3">
                             <div class="col-md-12 col-xl-10">
                                 <div class="card shadow-0 border rounded-3">
@@ -80,15 +81,21 @@
 
                                                 </div>
                                                 <div class="d-flex flex-column mt-4">
+                                                    
                                                     @if (Auth::check())
-                                                        <button class="btn btn-success btn-sm" type="submit"
-                                                            value="{{ $hall->id }}" name="book_now">Book Now</button>
+                                                        @if (Auth::user()->role == 'admin')
+                                                            <span class=" btn btn-danger btn-sm">Admin cannot book</span>
+                                                        @else
+                                                            <button class="btn btn-success btn-sm" type="submit" value="{{ $hall->id }}" name="book_now">Book Now</button>
+                                                        @endif
+                                               
                                                     @else
                                                     <a href="{{ route('user.login_search', [
                                                         'hall' => '0',
                                                         'check_in' => $check_in_date_view,
                                                         'check_out' => $check_out_date_view,
-                                                        'shift' => $shift_view,
+                                                        'start_time' => $start_time,
+                                                        'end_time' => $end_time,
                                                         'charity' => $charity,
                                                     ]) }}" class="btn btn-primary btn-sm">Login to Book</a>
                                                     @endif
@@ -110,7 +117,8 @@
                     @method('POST')
                     <input type="hidden" name="check_out_date" value="{{ $check_out_date_view }}">
                     <input type="hidden" name="check_in_date" value="{{ $check_in_date_view }}">
-                    <input type="hidden" name="shifts_model_id" value="{{ $shift_view }}">
+                    <input type="hidden" name="start_time" value="{{ $start_time }}">
+                    <input type="hidden" name="end_time" value="{{ $end_time }}">
 
                     <div class="row justify-content-center mb-3">
                         <div class="col-md-12 col-xl-10">
@@ -167,14 +175,19 @@
 
                                                 @if (auth()->check())
                                                     <!-- Check if the user is authenticated -->
-                                                        <button class="btn btn-success btn-sm" type="submit"
-                                                        value="{{ $hallInfo->id }}" name="book_now">Book Now</button>
+                                                    @if (Auth::user()->role == 'admin')
+                                                    <span class=" btn btn-danger btn-sm">Admin cannot book</span>
+                                                 @else
+                                                     <button class="btn btn-success btn-sm" type="submit" value="{{ $hall->id }}" name="book_now">Book Now</button>
+                                                 @endif
+                                        
                                                 @else
                                                 <a href="{{ route('user.login_search', [
                                                     'hall' => $hallInfo,
                                                     'check_in' => $check_in_date_view,
                                                     'check_out' => $check_out_date_view,
-                                                    'shift' => $shift_view,
+                                                    'start_time' => $start_time,
+                                                    'end_time' => $end_time,
                                                     'charity' => $charity ?? 'default_value_here',
                                                 ]) }}" class="btn btn-primary btn-sm">Login to Book</a>
                                                 

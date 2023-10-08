@@ -7,9 +7,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-
-        
-
                     <section class="h-100 gradient-custom">
                         <div class="container py-5 h-100">
                             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -46,16 +43,34 @@
                                                         <div
                                                             class="col-md-2 text-center d-flex justify-content-center align-items-center">
                                                             <p class="text-muted mb-0 small">Price:
-                                                                <b>${{ $bookingmanage->amount }}</b></p>
+                                                                <b>${{ $bookingmanage->amount }}  </b>@if ($bookingmanage->organization_type === 'charity')
+                                                                (with discount)
+                                                            @endif</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="d-flex justify-content-between pt-2">
-                                                <p class="fw-bold mb-0">Shift</p>
+                                                <p class="fw-bold mb-0">Hall Name</p>
                                                 <p class="text-muted mb-0"><span
-                                                        class="fw-bold me-4">{{ $ShiftsModel->name }}</span></p>
+                                                        class="fw-bold me-4">{{ $HallManage->hall_name }}</span></p>
+                                            </div>
+                                            <div class="d-flex justify-content-between pt-2">
+                                                <p class="fw-bold mb-0">Check in</p>
+                                                <p class="text-muted mb-0"><span
+                                                        class="fw-bold me-4">{{ $bookingmanage->check_in_date }}</span></p>
+                                            </div>
+                                            <div class="d-flex justify-content-between pt-2">
+                                                <p class="fw-bold mb-0">Check out</p>
+                                                <p class="text-muted mb-0"><span
+                                                        class="fw-bold me-4">{{ $bookingmanage->check_out_date }}</span></p>
+                                            </div>
+                                            <div class="d-flex justify-content-between pt-2">
+                                                <p class="fw-bold mb-0">Time</p>
+                                                <p class="text-muted mb-0"><span
+                                                        class="fw-bold me-4">{{ \Carbon\Carbon::parse($bookingmanage->start_time)->format('h:i A') }}
+                                                        - {{ \Carbon\Carbon::parse($bookingmanage->end_time)->format('h:i A') }}</span></p>
                                             </div>
                                             <div class="d-flex justify-content-between pt-2">
                                                 <p class="fw-bold mb-0">Payment Type</p>

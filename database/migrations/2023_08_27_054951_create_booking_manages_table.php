@@ -21,11 +21,11 @@ return new class extends Migration
         
             $table->date('check_in_date');
             $table->date('check_out_date');
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->decimal('amount', 10, 2); // Assuming you want a decimal with 10 total digits and 2 decimal places
             $table->string('organization_type');
             $table->date('booking_date');
-            $table->unsignedBigInteger('shifts_model_id');
-            $table->foreign('shifts_model_id')->references('id')->on('shifts_models'); 
             $table->string('status')->nullable();
         
             $table->timestamps();

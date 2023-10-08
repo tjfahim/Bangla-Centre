@@ -47,32 +47,10 @@
                         </div>
                     </div><!-- End User Card -->
 
-                    <!-- Shift Card -->
-                    <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card revenue-card">
-
-
-                            <a href="{{ route('shift.index') }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">Shift</h5>
-
-                                    <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-clock"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <h6>{{ $totalShifts }}</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div><!-- End Shift Card -->
+                  
 
                     <!-- Hall Card -->
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xxl-4 col-xl-6">
 
                         <div class="card info-card customers-card">
 
@@ -95,7 +73,7 @@
 
                     </div><!-- End Hall Card -->
 
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xxl-4 col-xl-6">
 
                         <div class="card info-card customers-card">
                             <a href="{{ route('booking.index') }}">                    
@@ -118,7 +96,7 @@
                     @endif
                     <!-- Booking Card -->
                     @if(auth()->user()->role === 'user')
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xxl-4 col-xl-6">
 
                         <div class="card info-card customers-card">
                       
@@ -142,7 +120,7 @@
                     @endif
 
                     <!-- Booking Card -->
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xxl-4 col-xl-6">
 
                         <div class="card info-card customers-card">
 

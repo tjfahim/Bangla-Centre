@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="{{ route('admin.index') }}">
+            <a class="nav-link collapsed" href="{{ route('admin.index') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -20,12 +20,7 @@
                 <i class="bi bi-people"></i><span>Customer</span>
             </a>
         </li>
-     
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('shift.index') }}">
-                <i class="bi bi-clock"></i><span>Shift</span>
-            </a>
-        </li>
+   
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('hall_manage.index') }}">
                 <i class="bi bi-journal-text"></i><span>Hall Manage</span>
@@ -51,11 +46,13 @@
                 <i class="bi bi-currency-dollar"></i><span>Payment</span>
             </a>
         </li>
+        @if(auth()->user()->role === 'admin')
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('admin.settings') }}">
                 <i class="bi bi-wrench-adjustable-circle"></i><span>Settings</span>
             </a>
         </li>
+        @endif
 
     </ul>
 
