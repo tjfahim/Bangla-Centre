@@ -1,4 +1,22 @@
-        <header data-particle_enable="false" data-particle-mobile-disabled="false"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Toggle Button Example</title>
+    <style>
+        /* CSS for the menu and toggle button */
+        .elementor-menu-toggle {
+            cursor: pointer;
+        }
+
+        .elementor-nav-menu--dropdown {
+            display: none; /* Initially hide the menu */
+        }
+    </style>
+</head>
+       
+       <header data-particle_enable="false" data-particle-mobile-disabled="false"
             class="elementor-section elementor-top-section elementor-element elementor-element-5dcf5062 elementor-section-content-middle animated-slow elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible"
             data-id="5dcf5062" data-element_type="section"
             data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInDown&quot;}">
@@ -55,37 +73,37 @@
                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-62e3443d"
                     data-id="62e3443d" data-element_type="column">
                     <div class="elementor-widget-wrap elementor-element-populated">
-                        <div class="elementor-element elementor-element-13c3493 elementor-align-right elementor-widget__width-initial elementor-widget elementor-widget-button"
+                        <div class="elementor-element elementor-element-13c3493 elementor-align-right           elementor-widget__width-initial elementor-widget elementor-widget-button"
                             data-id="13c3493" data-element_type="widget" data-widget_type="button.default">
                             @if(Auth::check())
                             <div class="elementor-widget-container d-flex ml-4">
-                                <div class="elementor-button-wrapper"> <a
-                                        class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
-                                        href="{{route('admin.index')}}"> <span
-                                            class="elementor-button-content-wrapper"> <span
-                                                class="elementor-button-text">Welcome, {{ Auth::user()->name ?? 'Login' }}</span> </span> </a> </div>
-                                                <a class="dropdown-item d-flex align-items-center " style="margin-left: 5px" href="{{ asset('ui/backend') }}/#">
-                                                    <i class="bi bi-box-arrow-right"></i>
-                                                    <span>
-                                                        <form action="{{ route('logout') }}" method="POST">
-                                                            @csrf
-                                                            <button class="btn btn-sm btn-primary">Logout</button>
-                                                        </form>
-                                                    </span>
-                                                </a>
+                                <div class="elementor-button-wrapper"> 
+                                        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow"
+                                            href="{{route('admin.index')}}"> <span
+                                                class="elementor-button-content-wrapper"> <span
+                                                    class="elementor-button-text">Welcome, {{ Auth::user()->name ?? 'Login' }}</span> </span> 
+                                        </a> 
+                                </div>
+                                        <a class="dropdown-item d-flex align-items-center " style="margin-left: 5px" href="{{ asset('ui/backend') }}/#">
+                                            <i class="bi bi-box-arrow-right"></i>
+                                            <span>
+                                                <form action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-primary">Logout</button>
+                                                </form>
+                                            </span>
+                                        </a>
 
-                            </div>
-@else
-    <div class="elementor-button-wrapper">
-        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow" href="{{route('login')}}">
-            <span class="elementor-button-content-wrapper">
-                <span class="elementor-button-text">Login</span>
-            </span>
-        </a>
-    </div>
-@endif
-
-
+                                </div>
+                                    @else
+                                <div class="elementor-button-wrapper">
+                                    <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-grow" href="{{route('login')}}">
+                                        <span class="elementor-button-content-wrapper">
+                                            <span class="elementor-button-text">Login</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                    @endif
                         </div>
                     </div>
                 </div>
@@ -103,11 +121,14 @@
                             data-id="2c01df9" data-element_type="widget"
                             data-settings="{&quot;_animation&quot;:&quot;none&quot;}"
                             data-widget_type="theme-site-logo.default">
-                            <div class="elementor-widget-container"> <a href="https://banglacentre.com/newsite"> <img
+                            <div class="elementor-widget-container"> 
+                                <a href="https://newsite.banglacentre.com/"> <img
                                         width="632" height="180" src="{{ asset('ui/backend') }}/assets/images/2023-08-logo-footer-2-1.png"
                                         class="attachment-full size-full wp-image-3105" alt=""
                                         srcset="{{ asset('ui/backend') }}/assets/images/2023-08-logo-footer-2-1.png 632w, ./images/2023-08-logo-footer-2-1-600x171.png 600w"
-                                        sizes="(max-width: 632px) 100vw, 632px" /> </a> </div>
+                                        sizes="(max-width: 632px) 100vw, 632px" /> 
+                                </a> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,123 +145,56 @@
                                     <ul id="menu-1-846b2f3" class="elementor-nav-menu">
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4611">
-                                            <a href="https://banglacentre.com/newsite/"
+                                            <a href="https://newsite.banglacentre.com/"
                                                 class="elementor-item">Home</a></li>
                                         
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4610">
-                                            <a href="https://banglacentre.com/newsite/contact/"
+                                            <a href="https://newsite.banglacentre.com/contact/"
                                                 class="elementor-item">Contact</a></li>
                                     </ul>
                                 </nav>
-                                <div class="elementor-menu-toggle" role="button" tabindex="0"
-                                    aria-label="Menu Toggle" aria-expanded="false"> <i aria-hidden="true"
-                                        role="presentation"
-                                        class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i
-                                        aria-hidden="true" role="presentation"
-                                        class="elementor-menu-toggle__icon--close eicon-close"></i> <span
-                                        class="elementor-screen-only">Menu</span> </div>
-                                <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container"
-                                    aria-hidden="true">
-                                    <ul id="menu-2-846b2f3" class="elementor-nav-menu">
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4611">
-                                            <a href="https://banglacentre.com/newsite/" class="elementor-item"
-                                                tabindex="-1">Home</a></li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-533">
-                                            <a href="https://banglacentre.com/newsite/about/" class="elementor-item"
-                                                tabindex="-1">About</a>
-                                            <ul class="sub-menu elementor-nav-menu--dropdown">
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1800">
-                                                    <a href="https://banglacentre.com/newsite/history/"
-                                                        class="elementor-sub-item" tabindex="-1">History</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4576">
-                                                    <a href="https://banglacentre.com/newsite/meet-the-team/"
-                                                        class="elementor-sub-item" tabindex="-1">Meet the team</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-4570">
-                                            <a href="https://banglacentre.com/newsite/balgrayhill-community-hall/"
-                                                class="elementor-item" tabindex="-1">Balgrayhill Community hall</a>
-                                            <ul class="sub-menu elementor-nav-menu--dropdown">
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4564 current_page_item menu-item-4572">
-                                                    <a href="./booking.html" aria-current="page"
-                                                        class="elementor-sub-item elementor-item-active"
-                                                        tabindex="-1">Booking</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4571">
-                                                    <a href="https://banglacentre.com/newsite/whats-happening-on/"
-                                                        class="elementor-sub-item" tabindex="-1">What’s Happening
-                                                        on</a></li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4597">
-                                            <a href="https://banglacentre.com/newsite/bangla-school/"
-                                                class="elementor-item" tabindex="-1">Bangla school</a>
-                                            <ul class="sub-menu elementor-nav-menu--dropdown">
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4596">
-                                                    <a href="https://banglacentre.com/newsite/students-archive/"
-                                                        class="elementor-sub-item" tabindex="-1">Students’
-                                                        Archive</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4599">
-                                                    <a href="https://banglacentre.com/newsite/star-of-the-month/"
-                                                        class="elementor-sub-item" tabindex="-1">Star of the
-                                                        Month</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4600">
-                                                    <a href="https://banglacentre.com/newsite/school-gallery/"
-                                                        class="elementor-sub-item" tabindex="-1">School Gallery</a>
-                                                </li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4601">
-                                                    <a href="https://banglacentre.com/newsite/teaches-and-school-committee/"
-                                                        class="elementor-sub-item" tabindex="-1">Teaches and School
-                                                        committee</a></li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4602">
-                                            <a href="https://banglacentre.com/newsite/registration/"
-                                                class="elementor-item" tabindex="-1">Registration</a>
-                                            <ul class="sub-menu elementor-nav-menu--dropdown">
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4603">
-                                                    <a href="https://banglacentre.com/newsite/membership/"
-                                                        class="elementor-sub-item" tabindex="-1">Membership</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4604">
-                                                    <a href="https://banglacentre.com/newsite/bangla-school-registration/"
-                                                        class="elementor-sub-item" tabindex="-1">Bangla School
-                                                        registration</a></li>
-                                                <li
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4605">
-                                                    <a href="https://banglacentre.com/newsite/other-registration/"
-                                                        class="elementor-sub-item" tabindex="-1">Other
-                                                        Registration</a></li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4617">
-                                            <a href="https://banglacentre.com/newsite/blog/" class="elementor-item"
-                                                tabindex="-1">Blog</a></li>
-                                        <li
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4610">
-                                            <a href="https://banglacentre.com/newsite/contact/" class="elementor-item"
-                                                tabindex="-1">Contact</a></li>
-                                    </ul>
-                                </nav>
+                                <div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+                                    <i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i>
+                                    <i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>
+                                    <span class="elementor-screen-only">Menu</span>
+                               </div>
+                               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+                               <span class="elementor-screen-only">Menu</span>
+                </button>
+
+    <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+        <ul id="menu-2-846b2f3" class="elementor-nav-menu">
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4611">
+                <a href="https://newsite.banglacentre.com/" class="elementor-item" tabindex="-1">Home</a>
+            </li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4610">
+                <a href="https://newsite.banglacentre.com/contact/" class="elementor-item" tabindex="-1">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+      
+    <script>
+        // JavaScript to toggle the menu
+        const toggleButton = document.querySelector('.elementor-menu-toggle');
+        const menu = document.querySelector('.elementor-nav-menu--dropdown');
+
+        toggleButton.addEventListener('click', () => {
+            const isMenuOpen = menu.style.display === 'block';
+            menu.style.display = isMenuOpen ? 'none' : 'block';
+            toggleButton.setAttribute('aria-expanded', !isMenuOpen);
+        });
+    </script>
+
+
+</body>
+</html>

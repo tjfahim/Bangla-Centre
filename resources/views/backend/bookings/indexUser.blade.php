@@ -19,8 +19,7 @@
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Hall</th>
-                                        <th scope="col">Check in Date</th>
-                                        <th scope="col">Check out Date</th>
+                                        <th scope="col">Booked Date</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
@@ -35,8 +34,7 @@
                                         <tr>
                                             <th scope="row">{{ $sl++ }}</th>
                                             <td>{{ $bookingmanage->hallmanages->hall_name ?? '' }}</td>
-                                            <td>{{ $bookingmanage->check_in_date ?? '' }}</td>
-                                            <td>{{ $bookingmanage->check_out_date ?? '' }}</td>
+                                            <td>{{ $bookingmanage->booked_date ?? '' }}</td>
                                             <td>$ {{ $bookingmanage->amount ?? '' }}</td>
                                             <td>{{ $bookingmanage->status ?? '' }}</td>
                                             <td>

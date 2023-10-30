@@ -3,10 +3,12 @@
 
 @section('main_content')
     @include('backend.layouts2.includes.message')
+      <div class="col-lg-12 col-mb-4" style="font-size: 20px; margin-bottom:10px;font-weight: 600;width:60vw;;"> Edit Hall</div>
 
-    <div class="container">
+    <div class="container" style="
+    margin-top: 4%;        
+">
         <div class="card">
-            <h4 class="card-header">Edit Hall</h4>
             <div class="card-body">
                 <form action="{{ route('hallmanage.update', $hall->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf

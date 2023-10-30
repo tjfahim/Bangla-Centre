@@ -150,13 +150,13 @@
 
 <div style="background-image: url('{{ asset('ui/searchpage') }}/img/background.jpg'); background-size: cover;">
 
-    <div class="container p-md-5" style="padding-left: 20% !important; padding-right: 20% !important">
+    <div class="container p-md-5 p-sm-0"  style="padding-left: 20% !important; padding-right: 20% !important;">
         <div class="card">
             @include('backend.layouts2.includes.message')
             <div class="card-top border-bottom text-center">
 
             </div>
-            <div class="card-body p-5">
+            <div class="card-body p-md-5 p-sm-0">
 
                 <div class="row justify-content-center">
                     <div class="col-md-12">
@@ -164,9 +164,10 @@
                             <div class="header">Order Summary</div>
                             <h5>{{ $hall->hall_name }}</h5>
                             <div class="row item">
-                                <div class="col-4 align-self-center"><img class="img-fluid"
+                                <div class="col-md-4 col-sm-12 align-self-center"><img class="img-fluid"
                                         src="{{ asset('uploads/images/' . $hall->image) }}"></div>
-                                <div class="col-8">
+                                <div class="col-md-8 col-sm-12">
+                                    <div class="row"><b>Booked Date: {{ $booking->booked_date }}</b></div>
                                     <div class="row"><b>Price: ${{ $booking->amount }}</b></div>
                                     <div class="row text-muted">{!! $hall->hall_description !!}</div>
                                     <div class="row">Booking Date: {{ $booking->booking_date }}</div>

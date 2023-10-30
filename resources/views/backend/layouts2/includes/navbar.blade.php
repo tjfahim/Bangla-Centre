@@ -26,14 +26,6 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('ui/backend2') }}/assets/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Mar 09 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -52,11 +44,12 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
-                <li class="nav-item dropdown pe-3">
+                <li class="nav-item dropdown pe-3 col-md-3 ">
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href=""
+           
+                    <a class="nav-link nav-profile d-flex align-items-center " style="    float: right;margin-left:-135px" href=""
                         data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2"> {{ Auth::user()->name ?? '' }}</span>
+                        <span class="d-md-block dropdown-toggle"> {{ Auth::user()->name ?? '' }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

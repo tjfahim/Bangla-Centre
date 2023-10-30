@@ -48,10 +48,7 @@
                                 <form action="{{ route('user.login') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="hall" value="{{ $hall }}">
-                                    <input type="hidden" name="checkin" value="{{ $checkin }}">
-                                    <input type="hidden" name="checkout" value="{{ $checkout }}">
-                                    <input type="hidden" name="start_time" value="{{ $start_time }}">
-                                    <input type="hidden" name="end_time" value="{{ $end_time }}">
+                                    <input type="hidden" name="booked_date" value="{{ $booked_date }}">
                                     <input type="hidden" name="charity" value="{{ $charity }}">
 
                                     <div class="form-floating mb-3">

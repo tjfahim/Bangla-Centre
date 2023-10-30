@@ -15,12 +15,8 @@
                     <thead>
                         <tr>
                             <th scope="col">Ser No.</th>
-                            <th scope="col">Check-in Date</th>
-                            <th scope="col">Check-out Date</th>
+                            <th scope="col">Booked Date</th>
                             <th scope="col">Hall</th>
-                            <th scope="col">Period</th>
-                            <th scope="col">Start Time</th>
-                            <th scope="col">End Time</th>
                             <th scope="col">Booking Type</th>
                             <th scope="col">Price</th>
                             <th scope="col">Description</th>
@@ -36,12 +32,9 @@
                         @foreach ($searchpages as $searchpage)
                         <tr>
                             <th scope="row">{{ $sl++ }}</th>
-                            <td>{{ $searchpage->check_in_date ?? '' }}</td>
-                            <td>{{ $searchpage->check_out_date ?? '' }}</td>
+                            <td>{{ $searchpage->booked_date ?? '' }}</td>
                             <td>{{ $searchpage->hall ?? '' }}</td>
                             <td>{{ $searchpage->period ?? '' }}</td>
-                            <td>{{ $searchpage->start_time ?? '' }}</td>
-                            <td>{{ $searchpage->end_time ?? '' }}</td>
                             <td>{{ $searchpage->booking_type ?? '' }}</td>
                             <td>{{ $searchpage->price ?? '' }}</td>
                             <td>{!! $searchpage->description ?? '' !!}</td>

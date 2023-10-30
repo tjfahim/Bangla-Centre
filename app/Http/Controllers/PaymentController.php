@@ -77,7 +77,7 @@ class PaymentController extends Controller
             $payment->status = 'Paid';
             $payment->save();
 
-            $bookingmanage->status = 'Booked';
+            $bookingmanage->status = 'booked';
             $bookingmanage->save();
         } else {
             return 'fail insert in payment table';

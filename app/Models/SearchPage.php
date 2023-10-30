@@ -11,5 +11,5 @@ class SearchPage extends Model
 
     protected $table = "search_pages";
 
-    protected $fillable = ['check_in_date', 'check_out_date', 'hall', 'period', 'start_time', 'end_time', 'booking_type', 'price', 'description', 'image','discount'];
+    protected $fillable = ['booked_date', 'hall', 'period', 'booking_type', 'price', 'description', 'image','discount'];
 }

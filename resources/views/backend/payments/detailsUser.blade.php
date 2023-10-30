@@ -57,21 +57,16 @@
                                                         class="fw-bold me-4">{{ $HallManage->hall_name }}</span></p>
                                             </div>
                                             <div class="d-flex justify-content-between pt-2">
-                                                <p class="fw-bold mb-0">Check in</p>
+                                                <p class="fw-bold mb-0">Booked Date</p>
                                                 <p class="text-muted mb-0"><span
-                                                        class="fw-bold me-4">{{ $bookingmanage->check_in_date }}</span></p>
+                                                        class="fw-bold me-4">{{ $bookingmanage->booked_date }}</span></p>
                                             </div>
                                             <div class="d-flex justify-content-between pt-2">
                                                 <p class="fw-bold mb-0">Check out</p>
                                                 <p class="text-muted mb-0"><span
                                                         class="fw-bold me-4">{{ $bookingmanage->check_out_date }}</span></p>
                                             </div>
-                                            <div class="d-flex justify-content-between pt-2">
-                                                <p class="fw-bold mb-0">Time</p>
-                                                <p class="text-muted mb-0"><span
-                                                        class="fw-bold me-4">{{ \Carbon\Carbon::parse($bookingmanage->start_time)->format('h:i A') }}
-                                                        - {{ \Carbon\Carbon::parse($bookingmanage->end_time)->format('h:i A') }}</span></p>
-                                            </div>
+                                         
                                             <div class="d-flex justify-content-between pt-2">
                                                 <p class="fw-bold mb-0">Payment Type</p>
                                                 <p class="text-muted mb-0"><span

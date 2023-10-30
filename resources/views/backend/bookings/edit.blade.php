@@ -28,26 +28,16 @@
                     
                     <div class="row" style="padding-left: 25%; padding-right: 25%" required>
                         <div class="col-md mt-3">
-                            <label for="check_in_date" class="form-label">Check-In Date</label>
-                            <input type="date" name="check_in_date" class="form-control" 
-                                   @if(isset($booking->check_in_date)) value="{{ $booking->check_in_date }}" @endif>
-                            @error('check_in_date')
+                            <label for="booked_date" class="form-label">Check-In Date</label>
+                            <input type="date" name="booked_date" class="form-control" 
+                                   @if(isset($booking->booked_date)) value="{{ $booking->booked_date }}" @endif>
+                            @error('booked_date')
                                 <div class="text-danger mt-3">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     
-                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
-                        <div class="col-md mt-3">
-                            <label for="check_out_date" class="form-label">Check-Out Date</label>
-                            <input type="date" name="check_out_date" class="form-control" 
-                                   @if(isset($booking->check_out_date)) value="{{ $booking->check_out_date }}" @endif>
-                            @error('check_out_date')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    
+              
                  
                     
                     <div class="row" style="padding-left: 25%; padding-right: 25%">

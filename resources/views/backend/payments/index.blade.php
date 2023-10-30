@@ -3,11 +3,15 @@
 
 @section('main_content')
     @include('backend.layouts2.includes.message')
-    <div class="container">
+      <div class="col-lg-12 col-mb-4" style="font-size: 20px; margin-bottom:10px;font-weight: 600;width:60vw;;">Payment List</div>
+
+    <div class="container" style="
+    margin-top: 4%;        
+">
         <div class="card">
-            <div class="card-header d-flex">
+            {{-- <div class="card-header d-flex">
                Payment List
-            </div>
+            </div> --}}
             <div class="card-body">
                 <table class="table table-bordered datatable">
                     <thead>

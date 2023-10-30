@@ -53,12 +53,9 @@
         <thead>
             <tr>
                 <th scope="col">Serial</th>
-                <th scope="col">Check-in Date</th>
-                <th scope="col">Check-out Date</th>
+                <th scope="col">Booked Date</th>
                 <th scope="col">Hall</th>
                 <th scope="col">Period</th>
-                <th scope="col">Start Time</th>
-                <th scope="col">End Time</th>
                 <th scope="col">Booking Type</th>
                 <th scope="col">Price</th>
                 <th scope="col">Discount</th>
@@ -73,12 +70,9 @@
             @foreach ($dashboards as $dashboard)
             <tr>
                 <th scope="row">{{ $sl++ }}</th>
-                <td>{{ $dashboard->check_in_date ?? '' }}</td>
-                <td>{{ $dashboard->check_out_date ?? '' }}</td>
+                <td>{{ $dashboard->booked_date ?? '' }}</td>
                 <td>{{ $dashboard->hall ?? '' }}</td>
                 <td>{{ $dashboard->period ?? '' }}</td>
-                <td>{{ $dashboard->start_time ?? '' }}</td>
-                <td>{{ $dashboard->end_time ?? '' }}</td>
                 <td>{{ $dashboard->booking_type ?? '' }}</td>
                 <td>{{ $dashboard->price ?? '' }}</td>
                 <td>{{ $dashboard->discount ?? '' }}</td>

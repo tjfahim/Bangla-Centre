@@ -40,7 +40,7 @@ class PersonalDetailsController extends Controller
         try{
             $user = User::find($id);
             $user->delete();
-            return redirect()->route('person.index')->withMessage('Personal Details Deleted');
+            return redirect()->route('person.index')->withMessage('User Deleted Successfully');
         }catch(Exception $e){
             return redirect()->back()->withError($e->getMessage());
         }

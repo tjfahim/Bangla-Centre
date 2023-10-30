@@ -12,19 +12,13 @@
                     @csrf
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
-                            <label for="checkindate" class="form-label">Check-in Date</label>
-                            <input name="check_in_date" id="date_picker" type="date" class="form-control" value="{{ $searchpage->check_in_date }}">
-                            @error('check_in_date')
+                            <label for="booked_date" class="form-label">BookedDate</label>
+                            <input name="booked_date" id="date_picker" type="date" class="form-control" value="{{ $searchpage->booked_date }}">
+                            @error('booked_date')
                                 <div class="text-danger mt-3">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md mt-3">
-                            <label for="checkoutdate" class="form-label">Check-out Date</label>
-                            <input name="check_out_date" id="date_picker2" type="date" class="form-control" value="{{ $searchpage->check_out_date }}">
-                            @error('check_out_date')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
+                       
                     </div>
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
@@ -41,38 +35,9 @@
                                 <div class="text-danger mt-3">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md mt-3">
-                            <label for="Period" class="form-label">Period</label>
-                            <select class="form-select" id="period" name="period">
-                                <option value="{{ $searchpage->period }}" checked>{{ $searchpage->period ?? '' }}</option>
-                                <option value="Half Day">Half Day</option>
-                                <option value="Full Day">Full Day</option>
-                                <option value="Hour 1">Hour 1</option>
-                                <option value="Hour 2">Hour 2</option>
-                                <option value="Hour 3">Hour 3</option>
-                                <option value="Hour 4">Hour 4</option>
-                            </select>
-                            @error('period')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
+                
                     </div>
-                    <div class="row" style="padding-left: 25%; padding-right: 25%">
-                        <div class="col-md mt-3">
-                            <label class="form-label" for="Start Time">Start Time</label>
-                            <input class="form-control" type="time" id="start_time" name="start_time" value="{{ $searchpage->start_time }}">
-                            @error('start_time')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="col-md mt-3">
-                            <label class="form-label" for="End Time">End Time</label>
-                            <input class="form-control" type="time" id="end_time" name="end_time" value="{{ $searchpage->end_time }}">
-                            @error('end_time')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+                   
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
                             <div for="Type" class="form-label">Booking Type</div>

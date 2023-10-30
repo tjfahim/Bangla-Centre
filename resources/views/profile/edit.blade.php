@@ -3,15 +3,17 @@
 
 @section('main_content')
     @include('backend.layouts2.includes.message')
-    <section style="background-color: ;">
+      <div class="col-lg-12 col-mb-4" style="font-size: 20px; margin-bottom:10px;font-weight: 600;width:60vw;;">Profile Information</div>
+
+    <section style="
+          margin-top: 4%;        
+      ">
         <div class="container  ">
       
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-4">
-                        
                         <div class="card-body p-5">
-                            <div style="font-size: 20px; margin-bottom:10px">Profile Information</div>
                             @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}

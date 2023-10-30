@@ -17,12 +17,9 @@
             </div>
             <div class="card-header">Booking Details Informations</div>
             <div class="card-body">
-                <p>Check-in Date: {{ $dashboard->check_in_date ?? '' }}</p>
-                <p>Check-out Date: {{ $dashboard->check_out_date ?? '' }}</p>
+                <p>Booked Date: {{ $dashboard->booked_date ?? '' }}</p>
                 <p>Hall: {{ $dashboard->hall ?? '' }}</p>
                 <p>Period: {{ $dashboard->period ?? '' }}</p>
-                <p>Start Time: {{ $dashboard->start_time ?? '' }}</p>
-                <p>End Time: {{ $dashboard->end_time ?? '' }}</p>
                 <p>Booking Type: {{ $dashboard->booking_type ?? '' }}</p>
                 <p>Price: {{ $dashboard->price ?? '' }}</p>
                 <p>Discount: {{ $dashboard->discount ?? '' }}</p>

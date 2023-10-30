@@ -31,7 +31,7 @@
                                                 <img class="img-fluid" src="{{ asset('uploads/images/' . $hall->image) }}">
                                             </div>
                                             <div
-                                                class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                                class="col-md-4 text-center d-flex justify-content-center align-items-center">
                                                 <p class="text-muted mb-0">Organization Type:
                                                     <b>{{ $bookingmanage->organization_type }}</b></p>
                                             </div>
@@ -40,7 +40,7 @@
                                                 <p class="text-muted mb-0 small">Capacity: <b>{{ $hall->capacity }}</b></p>
                                             </div>
                                             <div
-                                                class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                                class="col-md-3 text-center d-flex justify-content-center align-items-center">
                                                 <p class="text-muted mb-0 small">Price: <b>${{ $bookingmanage->amount }}</b>
                                                 </p>
                                             </div>
@@ -48,6 +48,11 @@
                                     </div>
                                 </div>
 
+                                <div class="d-flex justify-content-between pt-2">
+                                    <p class="fw-bold mb-0">Booked Date</p>
+                                    <p class="text-muted mb-0"><span
+                                            class="fw-bold me-4">{{ $bookingmanage->booked_date }}</span></p>
+                                </div>
                                 <div class="d-flex justify-content-between pt-2">
                                     <p class="fw-bold mb-0">Payment Type</p>
                                     <p class="text-muted mb-0"><span

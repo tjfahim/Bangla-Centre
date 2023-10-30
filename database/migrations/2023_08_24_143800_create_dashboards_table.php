@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::create('dashboards', function (Blueprint $table) {
             $table->id();
-            $table->date('check_in_date');
-            $table->date('check_out_date');
+            $table->date('booked_date');
             $table->string('hall');
             $table->string('period');
-            $table->time('start_time');
-            $table->time('end_time');
             $table->string('booking_type');
             $table->float('price', 8, 2);
             $table->float('discount', 8, 2);

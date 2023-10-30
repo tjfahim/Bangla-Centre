@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function userLoginget(Request $request,$hall, $checkin, $checkout, $start_time, $end_time, $charity){
+    public function userLoginget(Request $request,$hall, $booked_date, $charity){
 
-        return view('backend.bookings.login', compact('hall', 'checkin', 'checkout', 'start_time', 'end_time', 'charity'));
+        return view('backend.bookings.login', compact('hall', 'booked_date', 'charity'));
 
     }
     public function login_new(){
@@ -26,10 +26,7 @@ class AuthController extends Controller
     public function userLogin(Request $request){
 
         $hall= $request->hall;
-        $checkin= $request->checkin;
-        $checkout= $request->checkout;
-        $start_time= $request->start_time;
-        $end_time= $request->end_time;
+        $booked_date= $request->booked_date;
         $charity= $request->charity;
 
         if($request->isMethod('post')){
@@ -46,17 +43,8 @@ class AuthController extends Controller
             }
             if (Hash::check($credentials['password'], $user->password)) {
                 Auth::login($user);
-                
-                $charity = $charity;
-                $start_time = $start_time;
-                $end_time = $end_time;
-                if (strtotime($checkin) > strtotime($checkout)) {
-                    return redirect()->back()->with('message', 'Invalid date selection. Check-in date cannot be greater than check-out date.');
 
-                }
-
-                $query = BookingManage::where('booking_manages.check_in_date', '<=', $checkout)
-                ->where('booking_manages.check_out_date', '>=', $checkin);
+                $query = BookingManage::where('booking_manages.booked_date',  $booked_date);
 
                 if ($hall != 0) {
                     $query->where('booking_manages.hall_manage_id', $hall);
@@ -65,16 +53,6 @@ class AuthController extends Controller
                 $existingBooking = $query->get();
 
                 $bookingCount = $existingBooking->count();
-
-                $check_in_date_view = $checkin;
-                $check_out_date_view = $checkout;
-                $start_time = $start_time;
-                $end_time = $end_time;
-
-                $checkInDate = new \DateTime($checkin);
-                $checkOutDate = new \DateTime($checkout);
-                $numberOfDays = $checkInDate->diff($checkOutDate)->days;
-                $numberOfDays = $numberOfDays + 1;
 
 
                 if ($request->hall != 0 && $bookingCount==0) {
@@ -86,7 +64,7 @@ class AuthController extends Controller
                         $discount_price = $hallInfo->price;
                     }
 
-                    return view('backend.halllist', compact('hallInfo', 'discount_price', 'numberOfDays', 'charity', 'check_in_date_view', 'check_out_date_view', 'start_time', 'end_time'));
+                    return view('backend.halllist', compact('hallInfo', 'discount_price', 'charity', 'booked_date'));
 
                     } else if ($hall == 0 ) {
 
@@ -109,7 +87,7 @@ class AuthController extends Controller
 
                             $discount_prices[$hall->id] = $discount_price; // Store discount price for each hall
                         }
-                                 return view('backend.halllist', compact('allHallInfo', 'discount_prices', 'charity', 'numberOfDays', 'check_in_date_view','check_out_date_view', 'start_time', 'end_time'));
+                                 return view('backend.halllist', compact('allHallInfo', 'discount_prices', 'charity', 'booked_date'));
                             }
             }
             else {

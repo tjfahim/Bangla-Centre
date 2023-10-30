@@ -37,7 +37,7 @@ Route::post('/book', [HomeController::class, 'store'])->name('book_now');
 Route::get('/halldetails/{id}/{price}', [HomeController::class, 'halldetails'])->name('halldetails');
 Route::get('/status_update', [HomeController::class, 'status_update'])->name('status_update');
 Route::get('/status_update_pending', [HomeController::class, 'status_update_pending'])->name('status_update_pending');
-Route::get('/user-login/{hall}/{check_in}/{check_out}/{start_time}/{end_time}/{charity}', [AuthController::class, 'userLoginget'])->name('user.login_search');
+Route::get('/user-login/{hall}/{booked_date}/{charity}', [AuthController::class, 'userLoginget'])->name('user.login_search');
 Route::post('/user-login-submit', [AuthController::class, 'userLogin'])->name('user.login');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -47,15 +47,12 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_submit'])->name('register.submit');
 
 
-
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-
 Route::get('/login/new', [AuthController::class, 'login_new']);
-
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
 
@@ -135,9 +132,6 @@ Route::middleware(['auth', 'checkpermission'])->group(function () {
         Route::post('/update', [SettingsController::class, 'updateSettings'])->name('admin.settings.update');
         Route::get('/getStripeKey', [SettingsController::class, 'getStripeKey']);
     });
-
-
-
 
 
 });

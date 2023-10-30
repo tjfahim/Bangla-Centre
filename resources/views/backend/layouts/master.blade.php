@@ -7,9 +7,9 @@
     <title>Booking &#8211; Bangla Centre</title>
     <meta name='robots' content='max-image-preview:large' />
     <link rel="alternate" type="application/rss+xml" title="Bangla Centre &raquo; Feed"
-        href="https://banglacentre.com/newsite/feed/" />
+        href="https://newsite.banglacentre.com/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Bangla Centre &raquo; Comments Feed"
-        href="https://banglacentre.com/newsite/comments/feed/" />
+        href="https://newsite.banglacentre.com/comments/feed/" />
     <script type="text/javascript">
         window._wpemojiSettings = {
             "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/",
@@ -143,7 +143,7 @@
                    }
                });
            }
-              setInterval(status_update, 60000);
+              setInterval(status_update, 3600000);
        });
    </script>
    <script>
@@ -161,7 +161,7 @@
                    }
                });
            }
-              setInterval(status_update_pending, 600000);
+              setInterval(status_update_pending, 3600000);
        });
    </script>
 
@@ -624,11 +624,11 @@
     <script>
         /* <![CDATA[ */
         var rcewpp = {
-            "ajax_url": "https://banglacentre.com/newsite/wp-admin/admin-ajax.php",
+            "ajax_url": "https://newsite.banglacentre.com/wp-admin/admin-ajax.php",
             "nonce": "ac6cac2ae7",
-            "home_url": "https://banglacentre.com/newsite/",
-            "settings_icon": 'https://banglacentre.com/newsite/wp-content/plugins/export-wp-page-to-static-html/admin/images/settings.png',
-            "settings_hover_icon": 'https://banglacentre.com/newsite/wp-content/plugins/export-wp-page-to-static-html/admin/images/settings_hover.png'
+            "home_url": "https://newsite.banglacentre.com/",
+            "settings_icon": 'https://newsite.banglacentre.com/wp-content/plugins/export-wp-page-to-static-html/admin/images/settings.png',
+            "settings_hover_icon": 'https://newsite.banglacentre.com/wp-content/plugins/export-wp-page-to-static-html/admin/images/settings_hover.png'
         };
         /* ]]\> */
     </script>
@@ -636,17 +636,17 @@
     <script type='text/javascript' src='{{ asset('ui/backend') }}/assets/js/jquery-jquery-migrate.min.js' id='jquery-migrate-js'></script>
     <script type='text/javascript' src='{{ asset('ui/backend') }}/assets/js/elementor-assets-lib-font-awesome-js-v4-shims.min.js'
         id='font-awesome-4-shim-js'></script>
-    <link rel="https://api.w.org/" href="https://banglacentre.com/newsite/wp-json/" />
-    <link rel="alternate" type="application/json" href="https://banglacentre.com/newsite/wp-json/wp/v2/pages/4564" />
+    <link rel="https://api.w.org/" href="https://newsite.banglacentre.com/wp-json/" />
+    <link rel="alternate" type="application/json" href="https://newsite.banglacentre.com/wp-json/wp/v2/pages/4564" />
     <link rel="EditURI" type="application/rsd+xml" title="RSD"
-        href="https://banglacentre.com/newsite/xmlrpc.php?rsd" />
+        href="https://newsite.banglacentre.com/xmlrpc.php?rsd" />
     <meta name="generator" content="WordPress 6.3" />
-    <link rel="canonical" href="https://banglacentre.com/newsite/booking/" />
-    <link rel='shortlink' href='https://banglacentre.com/newsite/?p=4564' />
+    <link rel="canonical" href="https://newsite.banglacentre.com/booking/" />
+    <link rel='shortlink' href='https://newsite.banglacentre.com/?p=4564' />
     <link rel="alternate" type="application/json+oembed"
-        href="https://banglacentre.com/newsite/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbanglacentre.com%2Fnewsite%2Fbooking%2F" />
+        href="https://newsite.banglacentre.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbanglacentre.com%2Fnewsite%2Fbooking%2F" />
     <link rel="alternate" type="text/xml+oembed"
-        href="https://banglacentre.com/newsite/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbanglacentre.com%2Fnewsite%2Fbooking%2F&#038;format=xml" />
+        href="https://newsite.banglacentre.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbanglacentre.com%2Fnewsite%2Fbooking%2F&#038;format=xml" />
     <meta name="generator"
         content="Elementor 3.15.2; features: e_dom_optimization, e_optimized_assets_loading, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
     <meta name="generator"
@@ -655,7 +655,7 @@
     <link rel="icon" href="{{ asset('ui/backend') }}/assets/images/logo-footer-2-1.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="{{ asset('ui/backend') }}/assets/images/logo-footer-2-1.png" />
     <meta name="msapplication-TileImage"
-        content="https://banglacentre.com/newsite/wp-content/uploads/2023/08/logo-footer-2-1.png" />
+        content="https://newsite.banglacentre.com/wp-content/uploads/2023/08/logo-footer-2-1.png" />
     <script>
         function setREVStartSize(e) {
             //window.requestAnimationFrame(function() {

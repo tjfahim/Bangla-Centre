@@ -11,5 +11,5 @@ class Dashboard extends Model
 
     protected $table = "dashboards";
 
-    protected $fillable = ['check_in_date', 'check_out_date', 'hall', 'period', 'start_time', 'end_time', 'booking_type', 'price', 'discount', 'description', 'image', 'name', 'email', 'phone', 'address', 'comment', 'total_paid'];
+    protected $fillable = ['booked_date', 'hall', 'period', 'booking_type', 'price', 'discount', 'description', 'image', 'name', 'email', 'phone', 'address', 'comment', 'total_paid'];
 }

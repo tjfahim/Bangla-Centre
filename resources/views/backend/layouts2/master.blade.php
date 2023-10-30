@@ -50,7 +50,7 @@
                     }
                 });
             }
-               setInterval(status_update, 50000);
+               setInterval(status_update, 3600000);
         });
     </script>
     <script>
@@ -68,7 +68,7 @@
                     }
                 });
             }
-               setInterval(status_update_pending, 600000);
+               setInterval(status_update_pending, 3600000);
         });
     </script>
 

@@ -22,8 +22,7 @@ class FindHallRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'check_in_date' => 'required',
-            'check_out_date' => 'required',
+            'booked_date' => 'required',
             'hall' => 'required',
             'period' => 'required',
             'charity' => 'required',

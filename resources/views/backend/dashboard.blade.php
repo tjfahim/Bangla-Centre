@@ -42,75 +42,53 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input name="check_in_date" id="date_picker" type="date" class="form-control"
+                                            <input name="booked_date" id="date_picker" type="date" class="form-control"
                                                 required>
-                                            @error('check_in_date')
+                                            @error('booked_date')
                                                 <div class="text-danger mt-3">{{ $message }}</div>
                                             @enderror
-                                            <span class="form-label">Check In</span>
+                                            <span class="form-label">Select Date</span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input name="check_out_date" id="date_picker2" type="date"
-                                                class="form-control" required>
-                                            @error('check_out_date')
-                                                <div class="text-danger mt-3">{{ $message }}</div>
-                                            @enderror
-                                            <span class="form-label">Check Out</span>
-                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+    
+                                                <span class="form-label">Hall</span>
+                                                <select class="form-control col-sm-3" name="hall">
+                                                    <option class="col-sm-6" value="0">All Hall</option>
+    
+                                                    @foreach ($halls as $hall)
+                                                        <option  value="{{ $hall->id }}">{{ $hall->hall_name }}</option>
+                                                    @endforeach
+                                                </select>
+    
+                                                @error('hall')
+                                                    <div class="text-danger mt-3">{{ $message }}</div>
+                                                @enderror
+                                                <span class="select-arrow"></span>
+                                            </div>                                        
                                     </div>
                                 </div>
+                               
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-
-                                            <span class="form-label">Hall</span>
-                                            <select class="form-control" name="hall">
-                                                <option value="0">All Hall</option>
-
-                                                @foreach ($halls as $hall)
-                                                    <option value="{{ $hall->id }}">{{ $hall->hall_name }}</option>
-                                                @endforeach
-                                            </select>
-
-                                            @error('hall')
-                                                <div class="text-danger mt-3">{{ $message }}</div>
-                                            @enderror
-                                            <span class="select-arrow"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input name="start_time" id="start-time" type="time" class="form-control" required>
-                                                    @error('start_time')
-                                                        <div class="text-danger mt-3">{{ $message }}</div>
-                                                    @enderror
-                                                    <span class="form-label">Start Time</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input name="end_time" id="end-time" type="time" class="form-control" required>
-                                                    @error('end_time')
-                                                        <div class="text-danger mt-3">{{ $message }}</div>
-                                                    @enderror
-                                                    <span class="form-label">End Time</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 ">
                                         <div class="form-group">
                                             <h5>Orgainization Type</h5>
-                                            <input type="radio" id="Non Charity" name="charity" value="0" checked>
-                                            <label for="Non Charity"> Non Charity</label>
-                                            <input type="radio" id="Charity" name="charity" value="1">
-                                            <label for="Charity"> Charity</label>
+                                            <div class="row">
+                                                 
+                                                  <div class="col-md-6">
+                                                    <input type="radio" id="Charity" name="charity" value="1">
+                                                    <label for="Charity"> Charity</label>
+                                                 </div>
+                                                 <div class="col-md-6 ">
+                                                    <input type="radio" id="Non_Charity" name="charity" value="0" checked>
+                                                    <label for="Non_Charity"> Non Charity</label>
+                                                 </div>
+                                                
+                                            </div>
+                                          
+                                            
+                                         
                                             @error('charity')
                                                 <div class="text-danger mt-3">{{ $message }}</div>
                                             @enderror

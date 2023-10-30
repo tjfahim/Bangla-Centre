@@ -31,12 +31,9 @@ class SearchPageController extends Controller
                 $image = $this->uploadImage($request->image);
             }
             SearchPage::create([
-                'check_in_date' => $request->check_in_date,
-                'check_out_date' => $request->check_out_date,
+                'booked_date' => $request->booked_date,
                 'hall' => $request->hall,
                 'period' => $request->period,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
                 'booking_type' => $request->booking_type,
                 'price' => $request->price,
                 'description' => $request->description,

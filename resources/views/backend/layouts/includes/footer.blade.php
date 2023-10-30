@@ -8,7 +8,7 @@ data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
         <div class="elementor-widget-wrap elementor-element-populated">
             <div class="elementor-element elementor-element-297e524 elementor-widget elementor-widget-theme-site-logo elementor-widget-image"
                 data-id="297e524" data-element_type="widget" data-widget_type="theme-site-logo.default">
-                <div class="elementor-widget-container"> <a href="https://banglacentre.com/newsite"> <img
+                <div class="elementor-widget-container"> <a href="https://newsite.banglacentre.com"> <img
                             width="632" height="180" src="{{ asset('ui/backend') }}/assets/images/2023-08-logo-footer-2-1.png"
                             class="attachment-full size-full wp-image-3105" alt="" loading="lazy"
                             srcset="{{ asset('ui/backend') }}/assets/images/2023-08-logo-footer-2-1.png 632w, ./images/2023-08-logo-footer-2-1-600x171.png 600w"
@@ -37,42 +37,42 @@ data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                 data-id="6d0fde23" data-element_type="widget" data-widget_type="icon-list.default">
                 <div class="elementor-widget-container">
                     <ul class="elementor-icon-list-items">
-                        <li class="elementor-icon-list-item"> <a href="https://banglacentre.com/newsite/">
+                        <li class="elementor-icon-list-item"> <a href="https://newsite.banglacentre.com/">
                                 <span class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Home</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacentre.com/newsite/about/"> <span
+                                href="https://newsite.banglacentre.com/about/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">About</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacentre.com/newsite/events/"> <span
+                                href="https://newsite.banglacentre.com/events/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Events</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacentre.com/newsite/subscriptions/"> <span
+                                href="https://newsite.banglacentre.com/subscriptions/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Subscriptions</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacentre.com/newsite/donation/"> <span
+                                href="https://newsite.banglacentre.com/donation/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Donation</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacentre.com/newsite/blog/"> <span
+                                href="https://newsite.banglacentre.com/blog/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Blog</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacentre.com/newsite/gallery/"> <span
+                                href="https://newsite.banglacentre.com/gallery/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Gallery</span> </a> </li>
                         <li class="elementor-icon-list-item"> <a
-                                href="https://banglacahttps://banglacentre.com/newsite/contact/entre.com/newsite/gallery/">
+                                href="https://banglacahttps://newsite.banglacentre.com/contact/entre.com/newsite/gallery/">
                                 <span class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">Contact</span> </a> </li>

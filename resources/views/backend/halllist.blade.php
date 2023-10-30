@@ -24,10 +24,7 @@
                     <form action="{{ route('book_now') }}" method="post">
                         @csrf
                         @method('POST')
-                        <input type="hidden" name="check_out_date" value="{{ $check_out_date_view }}">
-                        <input type="hidden" name="check_in_date" value="{{ $check_in_date_view }}">
-                        <input type="hidden" name="start_time" value="{{ $start_time }}">
-                        <input type="hidden" name="end_time" value="{{ $end_time }}">
+                        <input type="hidden" name="booked_date" value="{{ $booked_date }}">
                         <div class="row justify-content-center mb-3">
                             <div class="col-md-12 col-xl-10">
                                 <div class="card shadow-0 border rounded-3">
@@ -61,20 +58,20 @@
                                                 <div class="d-flex flex-row align-items-center mb-1 justify-content-center">
                                                     @if ($charity == 1 && isset($discount_prices[$hall->id]))
                                                         <input type="hidden" name="calculated_price"
-                                                            value="{{ $discount_prices[$hall->id] * $numberOfDays }}">
+                                                            value="{{ $discount_prices[$hall->id] }}">
 
                                                         <h2 class="mb-1 me-1">
-                                                            ${{ $discount_prices[$hall->id] * $numberOfDays }}</h2>
+                                                            ${{ $discount_prices[$hall->id] }}</h2>
                                                         @php
-                                                            $price = $discount_prices[$hall->id] * $numberOfDays;
+                                                            $price = $discount_prices[$hall->id];
                                                         @endphp
                                                     @else
                                                         <input type="hidden" name="calculated_price"
-                                                            value="{{ $hall->price * $numberOfDays }}">
+                                                            value="{{ $hall->price }}">
 
-                                                        <h2 class="mb-1 me-1">${{ $hall->price * $numberOfDays }}</h2>
+                                                        <h2 class="mb-1 me-1">${{ $hall->price }}</h2>
                                                         @php
-                                                            $price = $hall->price * $numberOfDays;
+                                                            $price = $hall->price;
                                                         @endphp
                                                     @endif
                                                     <input type="hidden" name="charity" value="{{ $charity }}">
@@ -92,10 +89,7 @@
                                                     @else
                                                     <a href="{{ route('user.login_search', [
                                                         'hall' => '0',
-                                                        'check_in' => $check_in_date_view,
-                                                        'check_out' => $check_out_date_view,
-                                                        'start_time' => $start_time,
-                                                        'end_time' => $end_time,
+                                                        'booked_date' => $booked_date,
                                                         'charity' => $charity,
                                                     ]) }}" class="btn btn-primary btn-sm">Login to Book</a>
                                                     @endif
@@ -115,11 +109,7 @@
                 <form action="{{ route('book_now') }}" method="post">
                     @csrf
                     @method('POST')
-                    <input type="hidden" name="check_out_date" value="{{ $check_out_date_view }}">
-                    <input type="hidden" name="check_in_date" value="{{ $check_in_date_view }}">
-                    <input type="hidden" name="start_time" value="{{ $start_time }}">
-                    <input type="hidden" name="end_time" value="{{ $end_time }}">
-
+                    <input type="hidden" name="booked_date" value="{{ $booked_date }}">
                     <div class="row justify-content-center mb-3">
                         <div class="col-md-12 col-xl-10">
                             <div class="card shadow-0 border rounded-3">
@@ -155,17 +145,17 @@
 
                                                 @if (isset($discount_price))
                                                     <input type="hidden" name="calculated_price"
-                                                        value="{{ $discount_price * $numberOfDays }}">
-                                                    <h2 class="mb-1 me-1">${{ $discount_price * $numberOfDays }}</h2>
+                                                        value="{{ $discount_price }}">
+                                                    <h2 class="mb-1 me-1">${{ $discount_price }}</h2>
                                                     @php
-                                                        $price = $discount_price * $numberOfDays;
+                                                        $price = $discount_price;
                                                     @endphp
                                                 @else
                                                     <input type="hidden" name="calculated_price"
-                                                        value="{{ $hallInfo->price * $numberOfDays }}">
-                                                    <h2 class="mb-1 me-1">${{ $hallInfo->price * $numberOfDays }}</h2>
+                                                        value="{{ $hallInfo->price }}">
+                                                    <h2 class="mb-1 me-1">${{ $hallInfo->price }}</h2>
                                                     @php
-                                                        $price = $hallInfo->price * $numberOfDays;
+                                                        $price = $hallInfo->price;
                                                     @endphp
                                                 @endif
                                                 <input type="hidden" name="charity" value="{{ $charity }}">
@@ -178,16 +168,13 @@
                                                     @if (Auth::user()->role == 'admin')
                                                     <span class=" btn btn-danger btn-sm">Admin cannot book</span>
                                                  @else
-                                                     <button class="btn btn-success btn-sm" type="submit" value="{{ $hall->id }}" name="book_now">Book Now</button>
+                                                     <button class="btn btn-success btn-sm" type="submit" value="{{ $hall    }}" name="book_now">Book Now</button>
                                                  @endif
                                         
                                                 @else
                                                 <a href="{{ route('user.login_search', [
                                                     'hall' => $hallInfo,
-                                                    'check_in' => $check_in_date_view,
-                                                    'check_out' => $check_out_date_view,
-                                                    'start_time' => $start_time,
-                                                    'end_time' => $end_time,
+                                                    'booked_date' => $booked_date,
                                                     'charity' => $charity ?? 'default_value_here',
                                                 ]) }}" class="btn btn-primary btn-sm">Login to Book</a>
                                                 

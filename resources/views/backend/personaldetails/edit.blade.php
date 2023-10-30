@@ -3,10 +3,12 @@
 
 @section('main_content')
     @include('backend.layouts2.includes.message')
+      <div class="col-lg-12 col-mb-4" style="font-size: 20px; margin-bottom:10px;font-weight: 600;width:60vw;;"> Edit Personal Details</div>
 
-    <div class="container">
+    <div class="container" style="
+    margin-top: 4%;        
+">
         <div class="card">
-            <h4 class="card-header">Edit Personal Details</h4>
             <div class="card-body">
                 <form action="{{ route('person.update', $user->id) }}" method="POST" style="padding: 2% 25% 2% 25%">
                     @csrf

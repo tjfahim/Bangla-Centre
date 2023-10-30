@@ -26,40 +26,15 @@
                     </div>
                     <div class="row" style="padding-left: 25%; padding-right: 25%" required>
                         <div class="col-md mt-3">
-                            <label for="check_in_date" class="form-label">Check-In Date</label>
-                            <input type="date" name="check_in_date" class="form-control">
-                            @error('check_in_date')
+                            <label for="booked_date" class="form-label">Check-In Date</label>
+                            <input type="date" name="v" class="form-control">
+                            @error('booked_date')
                                 <div class="text-danger mt-3">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
-                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
-                        <div class="col-md mt-3">
-                            <label for="check_out_date" class="form-label">Check-Out Date</label>
-                            <input type="date" name="check_out_date" class="form-control">
-                            @error('check_out_date')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
-                        <div class="col-md mt-3">
-                            <label for="start_time" class="form-label">Start Time</label>
-                            <input type="time" name="start_time" class="form-control">
-                            @error('start_time')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row" style="padding-left: 25%; padding-right: 25%" required>
-                        <div class="col-md mt-3">
-                            <label for="end_time" class="form-label">End Time</label>
-                            <input type="time" name="end_time" class="form-control">
-                            @error('end_time')
-                                <div class="text-danger mt-3">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
+               
+                
                     <div class="row" style="padding-left: 25%; padding-right: 25%">
                         <div class="col-md mt-3">
                             <label class="form-label">Organization Type:</label>

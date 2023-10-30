@@ -15,14 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users'); // Assuming your users table is named 'users'
-        
             $table->unsignedBigInteger('hall_manage_id');
             $table->foreign('hall_manage_id')->references('id')->on('hall_manages');
-        
-            $table->date('check_in_date');
-            $table->date('check_out_date');
-            $table->time('start_time')->nullable();
-            $table->time('end_time')->nullable();
+            $table->date('booked_date');
             $table->decimal('amount', 10, 2); // Assuming you want a decimal with 10 total digits and 2 decimal places
             $table->string('organization_type');
             $table->date('booking_date');
