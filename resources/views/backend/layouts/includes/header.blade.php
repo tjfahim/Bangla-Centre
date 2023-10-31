@@ -13,6 +13,15 @@
         .elementor-nav-menu--dropdown {
             display: none; /* Initially hide the menu */
         }
+        #menu-custom-color-with-hover{
+            color: #009400;transition: color 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        #menu-custom-color-with-hover:hover{
+            color: #000080;
+         }
+        
     </style>
 </head>
        
@@ -146,12 +155,12 @@
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-4611">
                                             <a href="https://newsite.banglacentre.com/"
-                                                class="elementor-item">Home</a></li>
+                                                class="elementor-item" id="menu-custom-color-with-hover">Home</a></li>
                                         
                                         <li
                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4610">
                                             <a href="https://newsite.banglacentre.com/contact/"
-                                                class="elementor-item">Contact</a></li>
+                                                class="elementor-item" id="menu-custom-color-with-hover">Contact</a></li>
                                     </ul>
                                 </nav>
                                 <div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">

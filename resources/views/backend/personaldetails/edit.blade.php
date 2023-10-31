@@ -51,15 +51,24 @@
                                 @enderror
                             </div>
                         </div>
+                       
                     </div>
                     <div class="row">
                         <div class="col">
                             <div>
+                                <label class="form-label">Date of Birth</label>
+                                <input type="date" name="date_of_birth" class="form-control" value="{{ $user->date_of_birth }}">
+                                @error('date_of_birth')
+                                    <div class="text-danger mt-3">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div>
                                 <label for="Role" class="form-label">Role</label>
                                 <select class="form-select" id="role" name="role">
-                                    <option checked>Select Role</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="user">User</option>
+                                    <option value="admin" <?php if ($user->role === 'admin') echo 'selected'; ?>>Admin</option>
+                                    <option value="user" <?php if ($user->role === 'user') echo 'selected'; ?>>User</option>
                                 </select>
                                 @error('role')
                                     <div class="text-danger mt-3">{{ $message }}</div>

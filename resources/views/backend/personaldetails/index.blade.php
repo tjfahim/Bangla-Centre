@@ -19,6 +19,7 @@
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Address</th>
+                            <th scope="col">DOB</th>
                             <th scope="col">Role</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -34,7 +35,8 @@
                             <td>{{ $user->email ?? '' }}</td>
                             <td>{{ $user->phone ?? '' }}</td>
                             <td>{{ $user->address ?? '' }}</td>
-                            <td>{{ $user->role ?? '' }}</td>
+                            <td>{{ $user->date_of_birth ?? '' }}</td>
+                            <td style="color: {{ $user->role === 'admin' ? 'green' : 'black' }}">{{ $user->role ?? '' }}</td>
                             <td>
                                 <a class="btn btn-sm btn-warning" href="{{ route('person.edit',$user->id) }}">Edit</a>
 

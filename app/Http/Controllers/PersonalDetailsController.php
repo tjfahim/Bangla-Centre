@@ -29,7 +29,7 @@ class PersonalDetailsController extends Controller
         try{
             $data = $request->except('_token');
             User::where('id',$id)->update($data);
-            return redirect()->route('person.index')->withMessage('Personal Details Updated');
+            return redirect()->route('person.index')->withMessage('Successfully Details Updated');
         }catch(Exception $e){
             return redirect()->back()->withError($e->getMessage());
         }

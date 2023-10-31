@@ -18,7 +18,7 @@ data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                 data-id="7076565" data-element_type="widget" data-widget_type="text-editor.default">
                 <div class="elementor-widget-container">
                     <p><span style="color: #ffffff;">Bangla Centre is registered Scottish Charity since
-                            30th of July 2015 and regulated by The Scottish Charity Regulator (OSCR). Bangla
+                            30th of July 2015 and regulated by The Scottish Charity Regulator (OSCR). <br>Bangla
                             Centre Charity number – SC 045854</span></p>
                 </div>
             </div>
@@ -46,16 +46,8 @@ data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
                                         class="fas fa-angle-right"></i> </span> <span
                                     class="elementor-icon-list-text">About</span> </a> </li>
-                        <li class="elementor-icon-list-item"> <a
-                                href="https://newsite.banglacentre.com/events/"> <span
-                                    class="elementor-icon-list-icon"> <i aria-hidden="true"
-                                        class="fas fa-angle-right"></i> </span> <span
-                                    class="elementor-icon-list-text">Events</span> </a> </li>
-                        <li class="elementor-icon-list-item"> <a
-                                href="https://newsite.banglacentre.com/subscriptions/"> <span
-                                    class="elementor-icon-list-icon"> <i aria-hidden="true"
-                                        class="fas fa-angle-right"></i> </span> <span
-                                    class="elementor-icon-list-text">Subscriptions</span> </a> </li>
+                        
+                       
                         <li class="elementor-icon-list-item"> <a
                                 href="https://newsite.banglacentre.com/donation/"> <span
                                     class="elementor-icon-list-icon"> <i aria-hidden="true"
@@ -96,8 +88,8 @@ data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <ul class="elementor-icon-list-items">
                         <li class="elementor-icon-list-item"> <span class="elementor-icon-list-icon"> <i
                                     aria-hidden="true" class="fas fa-map-marker-alt"></i> </span> <span
-                                class="elementor-icon-list-text">Address Park Lane House Suite 2/10, 47
-                                Broad Street Glasgow G40 2QW</span> </li>
+                                class="elementor-icon-list-text">
+                                NGM Accountants Ltd, Suite 2/3, NGM Accountants, Park Lane House, 47 Broad St, Bridgeton, Glasgow G40 2QW, United Kingdom</span> </li>
                         <li class="elementor-icon-list-item"> <span class="elementor-icon-list-icon"> <i
                                     aria-hidden="true" class="far fa-envelope-open"></i> </span> <span
                                 class="elementor-icon-list-text">info@banglacentre.com</span> </li>
@@ -110,16 +102,18 @@ data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                     <ul class="elementor-icon-list-items">
                         <li class="elementor-icon-list-item"> <span class="elementor-icon-list-icon"> <i
                                     aria-hidden="true" class="fas fa-phone"></i> </span> <span
-                                class="elementor-icon-list-text">M M Rahman Chairperson 074 6261
-                                3413.</span> </li>
+                                class="elementor-icon-list-text">President: Ashraf Ullah Chowdhury (07792 559 175)</span> </li>
                         <li class="elementor-icon-list-item"> <span class="elementor-icon-list-icon"> <i
                                     aria-hidden="true" class="fas fa-phone"></i> </span> <span
-                                class="elementor-icon-list-text">Md Mazharul Habib Vice Chairperson 079
-                                0415 1780.</span> </li>
+                                class="elementor-icon-list-text">Vice President: Aminul Islam Babu (07914 145 599)</span> </li>
                         <li class="elementor-icon-list-item"> <span class="elementor-icon-list-icon"> <i
                                     aria-hidden="true" class="fas fa-phone"></i> </span> <span
-                                class="elementor-icon-list-text">Dr Shaif Uddin Ahammed Secretary 078 9193
-                                7388.</span> </li>
+                                class="elementor-icon-list-text">Dr. Shaif Uddin Ahammed (07891 937 388)
+                                </span> </li>
+                        <li class="elementor-icon-list-item"> <span class="elementor-icon-list-icon"> <i
+                                    aria-hidden="true" class="fas fa-phone"></i> </span> <span
+                                class="elementor-icon-list-text">General Secretary: Dr. Shahriar A. Al-Ahmed (07513 731 313)
+                                </span> </li>
                     </ul>
                 </div>
             </div>

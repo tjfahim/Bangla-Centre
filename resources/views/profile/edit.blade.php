@@ -52,6 +52,12 @@
                                         <input class="form-control mb-3 " type="text" name="address" value="{{ auth()->user()->address }}" required>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="">Date of Birth:</label>
+                                        <input class="form-control mb-3 " type="date" name="date_of_birth" value="{{ auth()->user()->date_of_birth }}" required>
+                                    </div>
+                                </div>
             
                                 <div class="text-left">
                                     <button type="submit" class="btn btn-success btn-sm">Update</button>

@@ -143,7 +143,8 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'address' => 'string|max:255',
+            'date_of_birth' => 'date|max:255',
             'password' => 'required|min:6',
         ]);
         $user = new User();
@@ -151,6 +152,7 @@ class AuthController extends Controller
         $user->email = $validatedData['email'];
         $user->phone = $validatedData['phone']; 
         $user->address = $validatedData['address']; 
+        $user->date_of_birth = $validatedData['date_of_birth']; 
         $user->password = bcrypt($validatedData['password']);
         $user->role = 'user';
         $user->save();
@@ -177,13 +179,15 @@ class AuthController extends Controller
                     'name' => 'required|string|max:255',
                     'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
                     'phone' => 'required|string|max:255',
-                    'address' => 'required|string|max:255',
+                    'address' => 'string|max:255',
+                    'date_of_birth' => 'string|max:255',
                 ]);
 
                 $user->name = $validatedData['name'];
                 $user->email = $validatedData['email'];
                 $user->phone = $validatedData['phone'];
                 $user->address = $validatedData['address'];
+                $user->date_of_birth = $validatedData['date_of_birth'];
                 $user->save();
 
                 return redirect()->back()->with('success', 'Profile updated successfully');

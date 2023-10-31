@@ -49,7 +49,11 @@ width: 100%; ;">
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="">Address</label>
-                    <input type="text" name="address" class="form-control" required />
+                    <input type="text" name="address" class="form-control" />
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="">Date of Birth</label>
+                    <input type="date" name="date_of_birth"  class="form-control"  />
                 </div>
              
                 <div class="form-outline mb-4">

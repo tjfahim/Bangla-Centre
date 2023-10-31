@@ -26,7 +26,7 @@
 	right: 0;
 	bottom: 0;
 	top: 0;
-	background: rgba(255, 255, 255, 0.8);
+	background: rgba(58, 58, 58, 0.5);
 }
 
 .booking-cta {
@@ -36,13 +36,13 @@
 .booking-cta h1 {
 	font-size: 52px;
 	text-transform: uppercase;
-	color: #181818;
+	color: #ffffff;
 	font-weight: 900;
 }
 
 .booking-cta p {
 	font-size: 22px;
-	color: #181818;
+	color: #ffffff;
 }
 
 .booking-form {
