@@ -50,27 +50,28 @@
                                             <span class="form-label">Select Date</span>
                                         </div>
                                     </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-    
-                                                <span class="form-label">Hall</span>
-                                                <select class="form-control col-sm-3" name="hall">
-                                                    <option class="col-sm-6" value="0">All Hall</option>
-    
-                                                    @foreach ($halls as $hall)
-                                                        <option  value="{{ $hall->id }}">{{ $hall->hall_name }}</option>
-                                                    @endforeach
-                                                </select>
-    
-                                                @error('hall')
-                                                    <div class="text-danger mt-3">{{ $message }}</div>
-                                                @enderror
-                                                <span class="select-arrow"></span>
-                                            </div>                                        
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <span class="form-label">Hall</span>
+                                            <select class="form-control" name="hall">
+                                                <option value="0">All Hall</option>
+
+                                                @foreach ($halls as $hall)
+                                                    <option value="{{ $hall->id }}">{{ $hall->hall_name }}</option>
+                                                @endforeach
+                                            </select>
+
+                                            @error('hall')
+                                                <div class="text-danger mt-3">{{ $message }}</div>
+                                            @enderror
+                                            <span class="select-arrow"></span>
+                                        </div>
                                     </div>
                                 </div>
                                
                                 <div class="row">
+                                  
                                     <div class="col-md-12 ">
                                         <div class="form-group">
                                             <h5>Orgainization Type</h5>
